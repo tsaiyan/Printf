@@ -16,7 +16,7 @@ void	ft_pwtype(t_struct *box)
 {
 	int		i;
 	size_t	len;
-
+	long	pa;
 	i = 0;
 	len = ft_strlen(box->argv1);
 	while (box->argv1[i] && i < len)
@@ -29,6 +29,8 @@ void	ft_pwtype(t_struct *box)
 			ft_putnbr(va_arg(box->argument_pointer, int));
 		if (box->argv1[i] == 's')
 			ft_putstr(va_arg(box->argument_pointer, char*));
+		if (box->argv1[i] == 'x')
+			ft_putnbr_x(va_arg(box->argument_pointer, int));
 		if (box->argv1[i - 1] == '%')
 			i++;
 		if (box->argv1[i] == '\n')

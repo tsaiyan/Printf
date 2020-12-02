@@ -33,6 +33,26 @@ void	ft_putnbr(int n)
 	ft_putchar(res % 10 + 48);
 }
 
+void	ft_putnbr_x(int n)
+{
+	unsigned res;
+	char *array;
+	
+	array = "0123456789abcdef";
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		res = n * -1;
+	}
+	else
+		res = (unsigned)n;
+	if (res > 16)
+		ft_putnbr(res / 16);
+	if (res == 16)
+		write (1, "10", 2);
+	else ft_putchar(array[res]);
+}
+
 void	ft_putstr(char *s)
 {
 	if (!s)
