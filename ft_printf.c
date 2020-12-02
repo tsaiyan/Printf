@@ -14,17 +14,18 @@
 
 int	ft_printf(char *argv1, ...)
 {
-	m_struct *box;
+	t_struct *box;
 
-	box = malloc(sizeof(m_struct));
+	box = malloc(sizeof(t_struct));
 	box->argv1 = argv1;
 	va_start(box->argument_pointer, argv1);
-	ft_parcer(box);
+	ft_pwtype(box);
 	va_end(box->argument_pointer);
 	return (0);
 }
 
-int main ()
+int	main(void)
 {
 	ft_printf("%d %i %c %c %c %s pidor\n", 3, 2, 'r', 'a', 'z', "like you", "lol");
+	return (0);
 }

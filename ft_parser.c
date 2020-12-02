@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_parcer(m_struct *box)
+void	ft_pwtype(t_struct *box)
 {
 	int		i;
 	size_t	len;

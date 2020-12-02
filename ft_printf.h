@@ -18,18 +18,15 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-typedef struct s_list
+typedef struct	s_list
 {
-	char *argv1;
-	va_list argument_pointer;
-	
-	
-	
-} m_struct;
-void	ft_parcer(m_struct *box);
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
-void	ft_putstr(char *s);
-size_t	ft_strlen(const char *str);
+	char		*argv1;
+	va_list		argument_pointer;
+}				t_struct;
+void			ft_pwtype(t_struct *box);
+void			ft_putchar(char c);
+void			ft_putnbr(int n);
+void			ft_putstr(char *s);
+size_t			ft_strlen(const char *str);
 
 #endif
