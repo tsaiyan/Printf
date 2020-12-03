@@ -26,7 +26,8 @@ int	ft_printf(char *argv1, ...)
 
 int	main(void)
 {
-	printf("%X\n", 11);
-	ft_printf("%X\n", 11);
+	//char *ar;
+	printf("%X\n", 1515);
+	ft_printf("%X\n", 1515);
 	return (0);
 }

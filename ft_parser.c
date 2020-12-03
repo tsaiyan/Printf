@@ -33,6 +33,8 @@ void	ft_pwtype(t_struct *box)
 			ft_putnbr_x(va_arg(box->argument_pointer, int));
 		if (box->argv1[i] == 'X')
 			ft_putnbr_bx(va_arg(box->argument_pointer, int));
+		if (box->argv1[i] == 'p')
+			ft_putnbr_p(va_arg(box->argument_pointer, int));
 		if (box->argv1[i - 1] == '%')
 			i++;
 		if (box->argv1[i] == '\n')
