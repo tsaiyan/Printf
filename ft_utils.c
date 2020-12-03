@@ -52,7 +52,7 @@ void	ft_putnbr(int n)
 	ft_putchar(res % 10 + 48);
 }
 
-static int ft_rank_count(int n)
+static size_t ft_rank_count(size_t n)
 {
 	int i;
 
@@ -70,7 +70,7 @@ void	ft_putnbr_x(int n)
 	unsigned res;
 	char *array;
 	char result_array[ft_rank_count(n) + 1];
-	int len;
+	size_t len;
 
 	len = ft_rank_count(n);
 	array = "0123456789abcdef";
@@ -84,12 +84,12 @@ void	ft_putnbr_x(int n)
 	ft_putstr(result_array);
 }
 
-void	ft_putnbr_x(int n)
+void	ft_putnbr_bx(int n)
 {
 	unsigned res;
 	char *array;
 	char result_array[ft_rank_count(n) + 1];
-	int len;
+	size_t len;
 
 	len = ft_rank_count(n);
 	array = "0123456789ABCDEF";
@@ -103,9 +103,22 @@ void	ft_putnbr_x(int n)
 	ft_putstr(result_array);
 }
 
-void	ft_putnbr_p(int n)
+void	ft_putnbr_p(unsigned long n)
 {
+	unsigned long res;
+	char *array;
+	char result_array[ft_rank_count(n) + 1];
+	size_t len;
+
+	len = ft_rank_count(n);
+	array = "0123456789abcdef";
+	res = n;
+	result_array[len] = '\0';
+	while (n != 0)
+	{
+		result_array[--len] = array[n % 16];
+		n /= 16;
+	}
 	write(1, "0x", 2);
-	n *= -1;
-	ft_putnbr_x(n);
+	ft_putstr(result_array);
 }

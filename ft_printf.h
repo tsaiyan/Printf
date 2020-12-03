@@ -30,4 +30,5 @@ void			ft_putstr(char *s);
 size_t			ft_strlen(const char *str);
 void			ft_putnbr_x(int n);
 void			ft_putnbr_bx(int n);
+void			ft_putnbr_p(unsigned long n);
 #endif

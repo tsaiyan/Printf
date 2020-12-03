@@ -27,10 +27,12 @@ int	ft_printf(char *argv1, ...)
 int	main(void)
 {
 	char *ar;
-
-	printf("%x\n", 272632528);
-	ft_printf("%x\n", 272632528);
-//	printf("%p\n", &ar);
-//	ft_printf("%p\n", &ar);
+	unsigned long n;
+	
+	n = &printf;
+//	printf("%x\n", 272632528);
+//	ft_printf("%x\n", 272632528);
+	printf("%p\n", &ar);
+	ft_printf("%p\n", &ar);
 	return (0);
 }
