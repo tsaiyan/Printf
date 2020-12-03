@@ -26,8 +26,11 @@ int	ft_printf(char *argv1, ...)
 
 int	main(void)
 {
-	//char *ar;
-	printf("%X\n", 1515);
-	ft_printf("%X\n", 1515);
+	char *ar;
+
+	printf("%x\n", 272632528);
+	ft_printf("%x\n", 272632528);
+//	printf("%p\n", &ar);
+//	ft_printf("%p\n", &ar);
 	return (0);
 }

@@ -57,7 +57,7 @@ static int ft_rank_count(int n)
 	int i;
 
 	i = 0;
-	while ( n % 16 != 0)
+	while (n)
 	{
 		i++;
 		n /= 16;
@@ -75,16 +75,16 @@ void	ft_putnbr_x(int n)
 	len = ft_rank_count(n);
 	array = "0123456789abcdef";
 	res = (unsigned)n;
-	result_array[len--] = '\0';
+	result_array[len] = '\0';
 	while (n != 0)
 	{
-		result_array[len--] = array[n % 16];
+		result_array[--len] = array[n % 16];
 		n /= 16;
 	}
 	ft_putstr(result_array);
 }
 
-void	ft_putnbr_bx(int n)
+void	ft_putnbr_x(int n)
 {
 	unsigned res;
 	char *array;
@@ -94,10 +94,10 @@ void	ft_putnbr_bx(int n)
 	len = ft_rank_count(n);
 	array = "0123456789ABCDEF";
 	res = (unsigned)n;
-	result_array[len--] = '\0';
+	result_array[len] = '\0';
 	while (n != 0)
 	{
-		result_array[len--] = array[n % 16];
+		result_array[--len] = array[n % 16];
 		n /= 16;
 	}
 	ft_putstr(result_array);
@@ -105,16 +105,7 @@ void	ft_putnbr_bx(int n)
 
 void	ft_putnbr_p(int n)
 {
-	unsigned res;
-	char *array;
-	
-	array = "0123456789ABCDEF";
-	//write(1, "0x", 2);
-	//n/=100;
-		res = (unsigned)n;
-	if (res > 16)
-		ft_putnbr(res / 16);
-	if (res == 16)
-		write (1, "10", 2);
-	else ft_putnbr_p(array[res]);
+	write(1, "0x", 2);
+	n *= -1;
+	ft_putnbr_x(n);
 }
