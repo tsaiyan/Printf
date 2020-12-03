@@ -18,7 +18,21 @@ void	display_int(t_struct *box)
 
 	n = va_arg(box->argument_pointer, int);
 	if (box->wight)
-		while (--box->wight >= ft_rank_count(n, 10))
+	{
+		if (box->align)
+		{
+			ft_putnbr(n);
+			while (--box->wight >= ft_rank_count(n, 10))
 			putchar(32);
-	ft_putnbr(n);
+		}
+		else
+		{
+			while (--box->wight >= ft_rank_count(n, 10))
+			putchar(32);
+			ft_putnbr(n);
+		}
+			
+	}
+	else
+		ft_putnbr(n);
 }

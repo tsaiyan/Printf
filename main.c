@@ -12,11 +12,13 @@
 
 #include "ft_printf.h"
 
+
+
 int	main(void)
 {
 	//char *ar;
 	
-	printf("%5d\n", -111);
-	ft_printf("%5d\n", -111);
+	printf("|%+50d|\n", 111);
+	ft_printf("|%+50d|\n", 111);
 	return (0);
 }

@@ -15,4 +15,5 @@
 void	ft_put_null_to_struct(t_struct *box)
 {
 	box->wight = 0;
+	box->align = 0;
 }
