@@ -122,3 +122,10 @@ void	ft_putnbr_p(unsigned long n)
 	write(1, "0x", 2);
 	ft_putstr(result_array);
 }
+
+
+void	ft_putnbr_u(unsigned int n)
+{
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + 48);
+}
