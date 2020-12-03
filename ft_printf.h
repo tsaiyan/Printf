@@ -23,6 +23,7 @@ typedef struct	s_list
 	char		*argv1;
 	int			wight;
 	int			align;
+	int			plus;
 	va_list		argument_pointer;
 }				t_struct;
 

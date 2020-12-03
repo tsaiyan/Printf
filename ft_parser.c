@@ -32,7 +32,8 @@ void	ft_pwtype(t_struct *box)
 			{
 				if ( box->argv1[i] == '-')
 					box->align = 1;
-				i++;
+				if ( box->argv1[i++] == '+')
+					box->plus = 1;
 			}
 			while (ft_isdigit(box->argv1[i]))
 			{

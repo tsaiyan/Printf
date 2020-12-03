@@ -15,21 +15,45 @@
 void	display_int(t_struct *box)
 {
 	int n;
+	int i;
 
+	i = box->wight;
 	n = va_arg(box->argument_pointer, int);
-	if (box->wight)
+	
+	/* если есть выравнивание */
+	if (i)
 	{
+		/* если есть - в ширине, сдвигаем влево */
 		if (box->align)
 		{
+			/* если есть +, выводим его перед положительными числами (вкл 0)*/
+			if ((box->plus && n >= 0))
+			{
+				ft_putchar('+');
+				i--;
+			}
 			ft_putnbr(n);
-			while (--box->wight >= ft_rank_count(n, 10))
+			while (--i >= ft_rank_count(n, 10))
 			putchar(32);
 		}
+			/* если нет выравнивания */
 		else
 		{
-			while (--box->wight >= ft_rank_count(n, 10))
-			putchar(32);
-			ft_putnbr(n);
+			/* снова проверка на плюс */
+			if ((box->plus && n >= 0))
+			{
+				i--;
+				while (--i >= ft_rank_count(n, 10))
+					putchar(32);
+				ft_putchar('+');
+				ft_putnbr(n);
+			}
+			else
+			{
+				while (--i >= ft_rank_count(n, 10))
+				putchar(32);
+				ft_putnbr(n);
+			}
 		}
 			
 	}
