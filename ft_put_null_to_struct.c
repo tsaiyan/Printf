@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_null_to_struct.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:13:44 by tsaiyan           #+#    #+#             */
-/*   Updated: 2020/12/02 13:13:49 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/12/03 19:16:43 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/12/03 19:16:45 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *argv1, ...)
+void	ft_put_null_to_struct(t_struct *box)
 {
-	t_struct *s_box;
-
-	s_box = malloc(sizeof(t_struct));
-	s_box->argv1 = argv1;
-	ft_put_null_to_struct(s_box);
-	va_start(s_box->argument_pointer, argv1);
-	ft_pwtype(s_box);
-	va_end(s_box->argument_pointer);
-	return (0);
+	box->wight = 0;
 }

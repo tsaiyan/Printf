@@ -10,35 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-
-typedef struct	s_list
+int	main(void)
 {
-	char		*argv1;
-	int			wight;
-	va_list		argument_pointer;
-}				t_struct;
-
-void			ft_pwtype(t_struct *box);
-void			display_int(t_struct *box);
-void			ft_putchar(char c);
-void			ft_putstr(char *s);
-size_t			ft_strlen(const char *str);
-void			ft_putnbr_x(int n);
-void			ft_putnbr_bx(int n);
-void			ft_putnbr_p(unsigned long n);
-void			ft_putnbr_u(unsigned int n);
-int				ft_printf(char *argv1, ...);
-int				ft_isdigit(int c);
-int				ft_atoi(char *str);
-void			ft_putnbr(int n);
-void			display_int(t_struct *box);
-size_t			ft_rank_count(long n, int base);
-void			ft_put_null_to_struct(t_struct *box);
-#endif
+	//char *ar;
+	
+	printf("%5d\n", -111);
+	ft_printf("%5d\n", -111);
+	return (0);
+}

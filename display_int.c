@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   display_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:13:44 by tsaiyan           #+#    #+#             */
-/*   Updated: 2020/12/02 13:13:49 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/12/03 17:48:29 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/12/03 17:48:36 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *argv1, ...)
+void	display_int(t_struct *box)
 {
-	t_struct *s_box;
+	int n;
 
-	s_box = malloc(sizeof(t_struct));
-	s_box->argv1 = argv1;
-	ft_put_null_to_struct(s_box);
-	va_start(s_box->argument_pointer, argv1);
-	ft_pwtype(s_box);
-	va_end(s_box->argument_pointer);
-	return (0);
+	n = va_arg(box->argument_pointer, int);
+	if (box->wight)
+		while (--box->wight >= ft_rank_count(n, 10))
+			putchar(32);
+	ft_putnbr(n);
 }
