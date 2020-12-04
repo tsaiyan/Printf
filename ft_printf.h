@@ -25,6 +25,7 @@ typedef struct	s_list
 	int			align;
 	char		znak;
 	int			zero;
+	int			accuracy;
 	va_list		argument_pointer;
 }				t_struct;
 

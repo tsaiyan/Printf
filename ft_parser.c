@@ -47,6 +47,12 @@ void	ft_pwtype(t_struct *box)
 				box->wight *= 10;
 				box->wight += box->argv1[i++] - 48;
 			}
+			if (box->argv1[i++] == '.')
+				while (ft_isdigit(box->argv1[i]))
+				{
+					box->accuracy *= 10;
+					box->accuracy += box->argv1[i++] - 48;
+				}
 			if (box->argv1[i] == 'd' || box->argv1[i] == 'i')
 				display_int(box);
 			if (box->argv1[i] == 'c')
