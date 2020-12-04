@@ -57,15 +57,11 @@ void	display_int(t_struct *box)
 				ft_putchar(32);
 			/* есть есть знак */
 			if (box->znak)
-			{
 				ft_putchar(box->znak);
-				i--;
-			}
 			/* есть нет знака */
 			else
 				ft_putchar(32);
 			ft_putnbr((int)n);;
 		}
-			
 	}
 }
