@@ -18,7 +18,7 @@ int	main(void)
 {
 	//char *ar;
 	
-	printf("|%--+-50d|\n", -111);
-	ft_printf("|%--+-50d|\n", -111);
+	printf("|%011d|\n", 111);
+	ft_printf("|%011d|\n", 111);
 	return (0);
 }

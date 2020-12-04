@@ -140,3 +140,4 @@ void	ft_putnbr(int n)
 		ft_putnbr(res / 10);
 	ft_putchar(res % 10 + 48);
 }
+

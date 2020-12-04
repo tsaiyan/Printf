@@ -21,20 +21,27 @@ void	ft_pwtype(t_struct *box)
 	len = ft_strlen(box->argv1);
 	while (box->argv1[i] && i < len)
 	{
-		/* печатаем все до % и потом после */
+		/* печатаем все до % и потом после. */
 		while (box->argv1[i] != '%' && box->argv1[i])
 			write(1, &box->argv1[i++], 1);
 		
 		if (box->argv1[i++] == '%')
 		{
-			/* запись ширины */
+			/* запись align, znak */
 			while (box->argv1[i] == 32 || box->argv1[i] == '-' || box->argv1[i] == '+')
 			{
 				if ( box->argv1[i] == '-')
 					box->align = 1;
 				if ( box->argv1[i++] == '+')
-					box->plus = 1;
+					box->znak = '+';
 			}
+			/* запись нуля */
+			if (box->argv1[i] == 48)
+			{
+				box->zero = 1;
+				i++;
+			}
+			/* запись ширины */
 			while (ft_isdigit(box->argv1[i]))
 			{
 				box->wight *= 10;
