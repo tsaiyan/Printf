@@ -10,6 +10,7 @@
 		9712EFCD2579317A0026485D /* display_int.c in Sources */ = {isa = PBXBuildFile; fileRef = 9712EFCC2579317A0026485D /* display_int.c */; };
 		978A91B2257946DF000E081E /* ft_put_null_to_struct.c in Sources */ = {isa = PBXBuildFile; fileRef = 978A91B1257946DF000E081E /* ft_put_null_to_struct.c */; };
 		97C829B82579032C002D9407 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97C829B72579032C002D9407 /* main.c */; };
+		97E8392C257E34C300409E9A /* main_moscow.c in Sources */ = {isa = PBXBuildFile; fileRef = 97E8392B257E34C300409E9A /* main_moscow.c */; };
 		97F0DBDC2577A044004B1656 /* ft_printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F0DBDB2577A044004B1656 /* ft_printf.c */; };
 		97F0DBDE2577B1C8004B1656 /* ft_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F0DBDD2577B1C8004B1656 /* ft_parser.c */; };
 		97F0DC222577C948004B1656 /* ft_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F0DC212577C948004B1656 /* ft_utils.c */; };
@@ -32,6 +33,7 @@
 		978A91B1257946DF000E081E /* ft_put_null_to_struct.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_put_null_to_struct.c; sourceTree = "<group>"; };
 		97C829B62578DA91002D9407 /* myprintf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myprintf; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C829B72579032C002D9407 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		97E8392B257E34C300409E9A /* main_moscow.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main_moscow.c; sourceTree = "<group>"; };
 		97F0DBDA2577A044004B1656 /* ft_printf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf.h; sourceTree = "<group>"; };
 		97F0DBDB2577A044004B1656 /* ft_printf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf.c; sourceTree = "<group>"; };
 		97F0DBDD2577B1C8004B1656 /* ft_parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_parser.c; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				97F0DBDA2577A044004B1656 /* ft_printf.h */,
 				97F0DBDB2577A044004B1656 /* ft_printf.c */,
 				97C829B72579032C002D9407 /* main.c */,
+				97E8392B257E34C300409E9A /* main_moscow.c */,
 				978A91B1257946DF000E081E /* ft_put_null_to_struct.c */,
 				97F0DBDD2577B1C8004B1656 /* ft_parser.c */,
 				9712EFCC2579317A0026485D /* display_int.c */,
@@ -127,6 +130,7 @@
 				978A91B2257946DF000E081E /* ft_put_null_to_struct.c in Sources */,
 				97F0DBDE2577B1C8004B1656 /* ft_parser.c in Sources */,
 				97F0DC222577C948004B1656 /* ft_utils.c in Sources */,
+				97E8392C257E34C300409E9A /* main_moscow.c in Sources */,
 				97F0DBDC2577A044004B1656 /* ft_printf.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

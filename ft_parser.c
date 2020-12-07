@@ -27,7 +27,7 @@ void	ft_pwtype(t_struct *box)
 		
 		if (box->argv1[i++] == '%')
 		{
-			/* запись align, znak */
+/* запись align, и знака +- */
 			while (box->argv1[i] == 32 || box->argv1[i] == '-' || box->argv1[i] == '+')
 			{
 				if ( box->argv1[i] == '-')
@@ -35,24 +35,39 @@ void	ft_pwtype(t_struct *box)
 				if ( box->argv1[i++] == '+')
 					box->znak = '+';
 			}
-			/* запись нуля */
+/* запись нуля */
 			if (box->argv1[i] == 48)
 			{
 				box->zero = 1;
 				i++;
 			}
-			/* запись ширины */
-			while (ft_isdigit(box->argv1[i]))
+/* запись ширины */
+			if (box->argv1[i] == '*')
 			{
-				box->wight *= 10;
-				box->wight += box->argv1[i++] - 48;
+				box->wight = va_arg(box->argument_pointer, int);
+				i++;
 			}
-			if (box->argv1[i++] == '.')
+			else
 				while (ft_isdigit(box->argv1[i]))
 				{
-					box->accuracy *= 10;
-					box->accuracy += box->argv1[i++] - 48;
+					box->wight *= 10;
+					box->wight += box->argv1[i++] - 48;
 				}
+/* запись точности */
+			if (box->argv1[i] == '.')
+			{
+				if (box->argv1[++i] == '*')
+				{
+					box->accuracy = va_arg(box->argument_pointer, int);
+					i++;
+				}
+				else
+					while (ft_isdigit(box->argv1[i]))
+					{
+						box->accuracy *= 10;
+						box->accuracy += box->argv1[i++] - 48;
+					}
+			}
 			if (box->argv1[i] == 'd' || box->argv1[i] == 'i')
 				display_int(box);
 			if (box->argv1[i] == 'c')

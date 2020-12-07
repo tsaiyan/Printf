@@ -125,7 +125,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-void	ft_putnbr(int n)
+void	ft_putnbr(long n)
 {
 	unsigned res;
 

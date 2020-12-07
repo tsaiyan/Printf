@@ -15,9 +15,9 @@
 void	display_int(t_struct *box)
 {
 	long n;
-	int i;
+	int accuracy;
+	int wight;
 
-	i = box->wight;
 	n = va_arg(box->argument_pointer, int);
 /* меняет знак, если n < 0 */
 	if (n < 0)
@@ -25,15 +25,20 @@ void	display_int(t_struct *box)
 		box->znak= '-';
 		n *= -1;
 	}
+	accuracy = (int)(box->accuracy - ft_rank_count(n, 10));
+	wight = box->wight - ((accuracy > 0) ? accuracy : 0) \
+								- (int)ft_rank_count(n, 10) - ((box->znak) ? 1 : 0);
 /* если есть выравнивание */
 	if (box->align)
 	{
-		if (box->znak && (i--))
+		if (box->znak && (wight--))
 			ft_putchar(box->znak);
+		while (accuracy-- > 0)
+			ft_putchar(48);
 		ft_putnbr((int)n);
-		if (box->wight)
-			while (--i >= ft_rank_count(n, 10))
-				ft_putchar(32);
+		wight += ((box->znak) ? 1 : 0);
+		while (wight-- > 0)
+			ft_putchar(32);
 	}
 /* если нет выравнивания */
 	else
@@ -41,27 +46,33 @@ void	display_int(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->znak)
+			if (box->accuracy)
+			{
+				while (wight-- > 0)
+					ft_putchar(32);
+				ft_putchar(box->znak);
+			}
+			else
 			{
 				ft_putchar(box->znak);
-				i--;
+				while (wight-- > 0)
+					ft_putchar(48);
 			}
-			while (i > 0 && --i >= ft_rank_count(n, 10))
+			while (accuracy-- > 0)
 				ft_putchar(48);
 			ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else
 		{
-			while (i > 0 && --i > ft_rank_count(n, 10))
+			while (wight-- > 0)
 				ft_putchar(32);
 			/* есть есть знак */
 			if (box->znak)
 				ft_putchar(box->znak);
-			/* есть нет знака */
-			else
-				ft_putchar(32);
-			ft_putnbr((int)n);;
+			while (accuracy-- > 0)
+				ft_putchar(48);
+			ft_putnbr(n);
 		}
 	}
 }
