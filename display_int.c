@@ -20,11 +20,9 @@ void	display_int(t_struct *box)
 
 	n = va_arg(box->argument_pointer, int);
 /* меняет знак, если n < 0 */
-	if (n < 0)
-	{
-		box->znak= '-';
+	if (n < 0 && (box->znak = '-'))
+
 		n *= -1;
-	}
 	accuracy = (int)(box->accuracy - ft_rank_count(n, 10));
 	wight = box->wight - ((accuracy > 0) ? accuracy : 0) - (int)ft_rank_count(n, 10)\
 															- ((box->znak) ? 1 : 0);
