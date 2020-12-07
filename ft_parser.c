@@ -37,11 +37,8 @@ void	ft_pwtype(t_struct *box)
 					box->zero = 1;
 			}
 /* запись ширины */
-			if (box->argv1[i] == '*')
-			{
+			if (box->argv1[i] == '*' && (++i))
 				box->wight = va_arg(box->argument_pointer, int);
-				i++;
-			}
 			else
 				while (ft_isdigit(box->argv1[i]))
 				{
@@ -67,7 +64,7 @@ void	ft_pwtype(t_struct *box)
 			if (box->argv1[i] == 'd' || box->argv1[i] == 'i')
 				display_int(box);
 			if (box->argv1[i] == 'c')
-				ft_putchar(va_arg(box->argument_pointer, int) , box);
+				display_char(box);
 			if (box->argv1[i] == 's')
 				ft_putstr(va_arg(box->argument_pointer, char*));
 			if (box->argv1[i] == 'x')

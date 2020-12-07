@@ -48,4 +48,5 @@ void			ft_putnbr(long n);
 void			display_int(t_struct *box);
 size_t			ft_rank_count(long n, int base);
 void			ft_putnull(t_struct *box);
+void			display_char(t_struct *box);
 #endif
