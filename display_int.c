@@ -43,7 +43,7 @@ void	display_int(t_struct *box)
 			ft_putchar(48);
 			box->retlen++;
 		}
-		ft_putnbr((int)n);
+		(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
 		wight += ((box->znak) ? 1 : 0);
 		while (wight-- > 0)
 		{
