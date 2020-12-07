@@ -40,6 +40,8 @@ size_t	ft_rank_count(long n, int base)
 {
 	size_t i;
 
+	if (n == 0)
+		return (1);
 	i = 0;
 	if (n < 0)
 	{

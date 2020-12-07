@@ -18,7 +18,7 @@ int	ft_printf(char *argv1, ...)
 
 	s_box = malloc(sizeof(t_struct));
 	s_box->argv1 = argv1;
-	ft_put_null_to_struct(s_box);
+	ft_putnull(s_box);
 	va_start(s_box->argument_pointer, argv1);
 	ft_pwtype(s_box);
 	va_end(s_box->argument_pointer);

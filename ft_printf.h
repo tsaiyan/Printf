@@ -26,6 +26,7 @@ typedef struct	s_list
 	char		znak;
 	int			zero;
 	int			accuracy;
+	int			point;
 	va_list		argument_pointer;
 }				t_struct;
 
@@ -44,5 +45,5 @@ int				ft_atoi(char *str);
 void			ft_putnbr(long n);
 void			display_int(t_struct *box);
 size_t			ft_rank_count(long n, int base);
-void			ft_put_null_to_struct(t_struct *box);
+void			ft_putnull(t_struct *box);
 #endif

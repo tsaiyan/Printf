@@ -27,7 +27,7 @@ void	display_int(t_struct *box)
 	}
 	accuracy = (int)(box->accuracy - ft_rank_count(n, 10));
 	wight = box->wight - ((accuracy > 0) ? accuracy : 0) \
-								- (int)ft_rank_count(n, 10) - ((box->znak) ? 1 : 0);
+	- ((!n && box->point)? 0 : ((int)ft_rank_count(n, 10))) - ((box->znak) ? 1 : 0);
 /* если есть выравнивание */
 	if (box->align)
 	{
@@ -72,7 +72,7 @@ void	display_int(t_struct *box)
 				ft_putchar(box->znak);
 			while (accuracy-- > 0)
 				ft_putchar(48);
-			ft_putnbr(n);
+			(!n && !box->accuracy && box->point)? 0 : ft_putnbr(n);
 		}
 	}
 }

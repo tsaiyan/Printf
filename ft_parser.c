@@ -14,7 +14,7 @@
 
 void	ft_pwtype(t_struct *box)
 {
-	int		i;
+	size_t	i;
 	size_t	len;
 
 	i = 0;
@@ -56,6 +56,7 @@ void	ft_pwtype(t_struct *box)
 /* запись точности */
 			if (box->argv1[i] == '.')
 			{
+				box->point = 1;
 				if (box->argv1[++i] == '*')
 				{
 					box->accuracy = va_arg(box->argument_pointer, int);
@@ -84,7 +85,7 @@ void	ft_pwtype(t_struct *box)
 				ft_putnbr_u(va_arg(box->argument_pointer, unsigned int));
 			i++;
 		}
-		if (box->argv1[i] == '\n')
-			write(1, "\n", 1);
+//		if (box->argv1[i] == '\n')
+//			write(1, "\n", 1);
 	}
 }
