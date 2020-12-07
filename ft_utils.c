@@ -18,7 +18,7 @@ void	ft_putstr(char *s)
 	if (!s)
 		return ;
 	while (*s)
-		ft_putchar(*s++);
+		ft_putchar(*s++, NULL);
 }
 
 size_t	ft_strlen(const char *str)
@@ -31,10 +31,14 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_struct *box)
 {
 	if (c)
+	{
+		if (box)
+			box->retlen++;
 		write(1, &c, 1);
+	}
 }
 
 size_t	ft_rank_count(long n, int base)
@@ -118,7 +122,7 @@ void	ft_putnbr_p(unsigned long n)
 void	ft_putnbr_u(unsigned int n)
 {
 		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + 48);
+	ft_putchar(n % 10 + 48, NULL);
 }
 
 int	ft_isdigit(int c)
@@ -135,6 +139,6 @@ void	ft_putnbr(long n)
 	res = (unsigned)n;
 	if (res >= 10)
 		ft_putnbr(res / 10);
-	ft_putchar(res % 10 + 48);
+	ft_putchar(res % 10 + 48, NULL);
 }
 

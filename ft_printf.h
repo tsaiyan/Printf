@@ -34,7 +34,7 @@ typedef struct	s_list
 
 void			ft_pwtype(t_struct *box);
 void			display_int(t_struct *box);
-void			ft_putchar(char c);
+void			ft_putchar(char c, t_struct *box);
 void			ft_putstr(char *s);
 size_t			ft_strlen(const char *str);
 void			ft_putnbr_x(int n);

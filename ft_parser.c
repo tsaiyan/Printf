@@ -71,7 +71,7 @@ void	ft_pwtype(t_struct *box)
 			if (box->argv1[i] == 'd' || box->argv1[i] == 'i')
 				display_int(box);
 			if (box->argv1[i] == 'c')
-				ft_putchar(va_arg(box->argument_pointer, int));
+				ft_putchar(va_arg(box->argument_pointer, int) , box);
 			if (box->argv1[i] == 's')
 				ft_putstr(va_arg(box->argument_pointer, char*));
 			if (box->argv1[i] == 'x')

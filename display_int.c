@@ -32,22 +32,15 @@ void	display_int(t_struct *box)
 	{
 		if (box->znak)
 		{
-			ft_putchar(box->znak);
+			ft_putchar(box->znak, box);
 			wight--;
-			box->retlen++;
 		}
 		while (accuracy-- > 0)
-		{
-			ft_putchar(48);
-			box->retlen++;
-		}
+			ft_putchar(48, box);
 		(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
 		wight += ((box->znak) ? 1 : 0);
 		while (wight-- > 0)
-		{
-			ft_putchar(32);
-			box->retlen++;
-		}
+			ft_putchar(32, box);
 	}
 /* если нет выравнивания */
 	else
@@ -58,55 +51,31 @@ void	display_int(t_struct *box)
 			if (box->accuracy)
 			{
 				while (wight-- > 0)
-				{
-					ft_putchar(32);
-					box->retlen++;
-				}
+					ft_putchar(32, box);
 				if (box->znak)
-				{
-				ft_putchar(box->znak);
-					box->retlen++;
-				}
+				ft_putchar(box->znak, box);
 			}
 			else
 			{
 				if (box->znak)
-				{
-					ft_putchar(box->znak);
-					box->retlen++;
-				}
+					ft_putchar(box->znak, box);
 				while (wight-- > 0)
-				{
-					ft_putchar(48);
-					box->retlen++;
-				}
+					ft_putchar(48, box);
 			}
 			while (accuracy-- > 0)
-			{
-				ft_putchar(48);
-				box->retlen++;
-			}
+				ft_putchar(48, box);
 			ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else
 		{
 			while (wight-- > 0)
-			{
-				ft_putchar(32);
-				box->retlen++;
-			}
+				ft_putchar(32, box);
 			/* есть есть знак */
 			if (box->znak)
-			{
-				ft_putchar(box->znak);
-				box->retlen++;
-			}
+				ft_putchar(box->znak, box);
 			while (accuracy-- > 0)
-			{
-				ft_putchar(48);
-				box->retlen++;
-			}
+				ft_putchar(48, box);
 			(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
 		}
 	}
