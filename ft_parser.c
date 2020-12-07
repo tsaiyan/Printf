@@ -30,19 +30,15 @@ void	ft_pwtype(t_struct *box)
 		
 		if (box->argv1[i++] == '%')
 		{
-/* запись align, и знака +- */
-			while (box->argv1[i] == 32 || box->argv1[i] == '-' || box->argv1[i] == '+')
+/* запись align, и знака +- и нуля*/
+			while (box->argv1[i] == 48 || box->argv1[i] == 32 || box->argv1[i] == '-' || box->argv1[i] == '+')
 			{
 				if ( box->argv1[i] == '-')
 					box->align = 1;
-				if ( box->argv1[i++] == '+')
+				if ( box->argv1[i] == '+')
 					box->znak = '+';
-			}
-/* запись нуля */
-			if (box->argv1[i] == 48)
-			{
-				box->zero = 1;
-				i++;
+				if (box->argv1[i++] == 48)
+					box->zero = 1;
 			}
 /* запись ширины */
 			if (box->argv1[i] == '*')
