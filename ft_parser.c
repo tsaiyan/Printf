@@ -23,7 +23,10 @@ void	ft_pwtype(t_struct *box)
 	{
 		/* печатаем все до % и потом после. */
 		while (box->argv1[i] != '%' && box->argv1[i])
+		{
 			write(1, &box->argv1[i++], 1);
+			box->retlen++;
+		}
 		
 		if (box->argv1[i++] == '%')
 		{

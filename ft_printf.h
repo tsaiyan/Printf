@@ -27,6 +27,8 @@ typedef struct	s_list
 	int			zero;
 	int			accuracy;
 	int			point;
+	int			retlen;
+
 	va_list		argument_pointer;
 }				t_struct;
 

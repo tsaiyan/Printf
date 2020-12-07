@@ -97,7 +97,8 @@ int tester ()
 int	main(void)
 {
 	//tester();
-	printf("this %d number", 17);
+	printf("\noriginal : %d\n", printf("%0-8.5d", 34));
+	ft_printf("\nmy       : %d\n",   ft_printf("%0-8.5d", 34));
 //	int INT_MAX = 2147483647;
 //	int INT_MIN = -2147483648;
 //	ft_printf("----------------%%d-%%i--------------------\n");

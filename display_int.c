@@ -26,19 +26,29 @@ void	display_int(t_struct *box)
 		n *= -1;
 	}
 	accuracy = (int)(box->accuracy - ft_rank_count(n, 10));
-	wight = box->wight - ((accuracy > 0) ? accuracy : 0) \
-	- ((!n && box->point)? 0 : ((int)ft_rank_count(n, 10))) - ((box->znak) ? 1 : 0);
+	wight = box->wight - ((accuracy > 0) ? accuracy : 0) - (int)ft_rank_count(n, 10)\
+															- ((box->znak) ? 1 : 0);
 /* если есть выравнивание */
 	if (box->align)
 	{
-		if (box->znak && (wight--))
+		if (box->znak)
+		{
 			ft_putchar(box->znak);
+			wight--;
+			box->retlen++;
+		}
 		while (accuracy-- > 0)
+		{
 			ft_putchar(48);
+			box->retlen++;
+		}
 		ft_putnbr((int)n);
 		wight += ((box->znak) ? 1 : 0);
 		while (wight-- > 0)
+		{
 			ft_putchar(32);
+			box->retlen++;
+		}
 	}
 /* если нет выравнивания */
 	else
@@ -49,30 +59,57 @@ void	display_int(t_struct *box)
 			if (box->accuracy)
 			{
 				while (wight-- > 0)
+				{
 					ft_putchar(32);
+					box->retlen++;
+				}
+				if (box->znak)
+				{
 				ft_putchar(box->znak);
+					box->retlen++;
+				}
 			}
 			else
 			{
-				ft_putchar(box->znak);
+				if (box->znak)
+				{
+					ft_putchar(box->znak);
+					box->retlen++;
+				}
 				while (wight-- > 0)
+				{
 					ft_putchar(48);
+					box->retlen++;
+				}
 			}
 			while (accuracy-- > 0)
+			{
 				ft_putchar(48);
+				box->retlen++;
+			}
 			ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else
 		{
 			while (wight-- > 0)
+			{
 				ft_putchar(32);
+				box->retlen++;
+			}
 			/* есть есть знак */
 			if (box->znak)
+			{
 				ft_putchar(box->znak);
+				box->retlen++;
+			}
 			while (accuracy-- > 0)
+			{
 				ft_putchar(48);
+				box->retlen++;
+			}
 			(!n && !box->accuracy && box->point)? 0 : ft_putnbr(n);
 		}
 	}
+	box->retlen += ft_rank_count(n, 10);
 }

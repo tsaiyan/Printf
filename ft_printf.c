@@ -14,13 +14,13 @@
 
 int	ft_printf(char *argv1, ...)
 {
-	t_struct *s_box;
+	t_struct *box;
 
-	s_box = malloc(sizeof(t_struct));
-	s_box->argv1 = argv1;
-	ft_putnull(s_box);
-	va_start(s_box->argument_pointer, argv1);
-	ft_pwtype(s_box);
-	va_end(s_box->argument_pointer);
-	return (0);
+	box = malloc(sizeof(t_struct));
+	box->argv1 = argv1;
+	ft_putnull(box);
+	va_start(box->argument_pointer, argv1);
+	ft_pwtype(box);
+	va_end(box->argument_pointer);
+	return (box->retlen); 
 }

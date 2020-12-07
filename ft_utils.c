@@ -33,7 +33,8 @@ size_t	ft_strlen(const char *str)
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	if (c)
+		write(1, &c, 1);
 }
 
 size_t	ft_rank_count(long n, int base)
@@ -66,7 +67,7 @@ void	ft_putnbr_x(int n)
 	len = ft_rank_count(n, 16);
 	array = "0123456789abcdef";
 	res = (unsigned)n;
-	result_array[len] = '\0';
+	result_array[len] = '0';
 	while (n != 0)
 	{
 		result_array[--len] = array[n % 16];
@@ -85,7 +86,7 @@ void	ft_putnbr_bx(int n)
 	len = ft_rank_count(n, 16);
 	array = "0123456789ABCDEF";
 	res = (unsigned)n;
-	result_array[len] = '\0';
+	result_array[len] = '0';
 	while (n != 0)
 	{
 		result_array[--len] = array[n % 16];
@@ -131,13 +132,7 @@ void	ft_putnbr(long n)
 {
 	unsigned res;
 
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		res = n * -1;
-	}
-	else
-		res = (unsigned)n;
+	res = (unsigned)n;
 	if (res >= 10)
 		ft_putnbr(res / 10);
 	ft_putchar(res % 10 + 48);
