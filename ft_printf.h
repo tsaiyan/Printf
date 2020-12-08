@@ -54,4 +54,5 @@ void			display_bighex(t_struct *box);
 void			display_unsigned(t_struct *box);
 void			display_pointer(t_struct *box);
 void			display_percent(t_struct *box);
+void			display_str(t_struct *box);
 #endif
