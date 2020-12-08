@@ -28,6 +28,7 @@ typedef struct	s_list
 	int			accuracy;
 	int			point;
 	int			retlen;
+	char		*ox;
 
 	va_list		argument_pointer;
 }				t_struct;
