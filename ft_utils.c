@@ -13,12 +13,12 @@
 #include "ft_printf.h"
 
 
-void	ft_putstr(char *s)
+void	ft_putstr(char *s, t_struct *box)
 {
 	if (!s)
 		return ;
 	while (*s)
-		ft_putchar(*s++, NULL);
+		ft_putchar(*s++, box);
 }
 
 size_t	ft_strlen(const char *str)

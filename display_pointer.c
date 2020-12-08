@@ -29,8 +29,8 @@ void	ft_putnbr_p(unsigned long n, t_struct *box)
 			result_array[--len] = array[n % 16];
 			n /= 16;
 		}
-	ft_putchar('0', box);
-	ft_putchar('x', box);
+	if (!box->accuracy)
+		ft_putstr(box->ox, box);
 	if (!n && !box->accuracy && box->point)
 		return ;
 	while (result_array[len])
@@ -94,8 +94,8 @@ void	display_pointer(t_struct *box)
 			while (wight-- > 0)
 				ft_putchar(32, box);
 			/* есть есть знак */
-			if (box->znak)
-				ft_putchar(box->znak, box);
+			if (box->accuracy)
+				ft_putstr(box->ox, box);
 			while (accuracy-- > 0)
 				ft_putchar(48, box);
 			(!n && !box->accuracy && box->point)? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
