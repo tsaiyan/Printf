@@ -76,7 +76,7 @@ void	ft_pwtype(t_struct *box)
 			if (box->argv1[i] == 'p')
 				ft_putnbr_p(va_arg(box->argument_pointer, unsigned long));
 			if (box->argv1[i] == 'u')
-				ft_putnbr_u(va_arg(box->argument_pointer, unsigned int));
+				display_unsigned(box);
 			i++;
 		}
 //		if (box->argv1[i] == '\n')

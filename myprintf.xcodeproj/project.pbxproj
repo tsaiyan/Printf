@@ -13,6 +13,7 @@
 		97531B0F257FA0EA00B00C40 /* display_bighex.c in Sources */ = {isa = PBXBuildFile; fileRef = 97531B0E257FA0EA00B00C40 /* display_bighex.c */; };
 		976ED7C0257F8B55002A5429 /* display_x.c in Sources */ = {isa = PBXBuildFile; fileRef = 976ED7BF257F8B55002A5429 /* display_x.c */; };
 		977128D3257EA49200AE43DB /* display_char.c in Sources */ = {isa = PBXBuildFile; fileRef = 977128D2257EA49100AE43DB /* display_char.c */; };
+		978CB681257FAF9500A33BFC /* display_unsigned.c in Sources */ = {isa = PBXBuildFile; fileRef = 978CB680257FAF9500A33BFC /* display_unsigned.c */; };
 		97C829B82579032C002D9407 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97C829B72579032C002D9407 /* main.c */; };
 		97E8392C257E34C300409E9A /* main_moscow.c in Sources */ = {isa = PBXBuildFile; fileRef = 97E8392B257E34C300409E9A /* main_moscow.c */; };
 		97F0DBDC2577A044004B1656 /* ft_printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F0DBDB2577A044004B1656 /* ft_printf.c */; };
@@ -39,6 +40,7 @@
 		97531B0E257FA0EA00B00C40 /* display_bighex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_bighex.c; sourceTree = "<group>"; };
 		976ED7BF257F8B55002A5429 /* display_x.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_x.c; sourceTree = "<group>"; };
 		977128D2257EA49100AE43DB /* display_char.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_char.c; sourceTree = "<group>"; };
+		978CB680257FAF9500A33BFC /* display_unsigned.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_unsigned.c; sourceTree = "<group>"; };
 		97C829B62578DA91002D9407 /* myprintf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = myprintf; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C829B72579032C002D9407 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		97E8392B257E34C300409E9A /* main_moscow.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main_moscow.c; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				977128D2257EA49100AE43DB /* display_char.c */,
 				976ED7BF257F8B55002A5429 /* display_x.c */,
 				97531B0E257FA0EA00B00C40 /* display_bighex.c */,
+				978CB680257FAF9500A33BFC /* display_unsigned.c */,
 				97F0DC212577C948004B1656 /* ft_utils.c */,
 				97F0DC202577C324004B1656 /* libft */,
 				97C829B62578DA91002D9407 /* myprintf */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9712EFCD2579317A0026485D /* display_int.c in Sources */,
+				978CB681257FAF9500A33BFC /* display_unsigned.c in Sources */,
 				97C829B82579032C002D9407 /* main.c in Sources */,
 				9712C8C1257E5F99008B97C2 /* ft_putnull.c in Sources */,
 				97531B0F257FA0EA00B00C40 /* display_bighex.c in Sources */,

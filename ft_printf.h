@@ -51,4 +51,5 @@ void			display_char(t_struct *box);
 void			display_x(t_struct *box);
 void			display_int(t_struct *box);
 void			display_bighex(t_struct *box);
+void			display_unsigned(t_struct *box);
 #endif
