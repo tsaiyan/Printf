@@ -59,25 +59,6 @@ size_t	ft_rank_count(long n, int base)
 	return (i);
 }
 
-void	ft_putnbr_x(int n)
-{
-	unsigned res;
-	char *array;
-	char result_array[ft_rank_count(n, 16) + 1];
-	size_t len;
-
-	len = ft_rank_count(n, 16);
-	array = "0123456789abcdef";
-	res = (unsigned)n;
-	result_array[len] = '0';
-	while (n != 0)
-	{
-		result_array[--len] = array[n % 16];
-		n /= 16;
-	}
-	ft_putstr(result_array);
-}
-
 void	ft_putnbr_bx(int n)
 {
 	unsigned res;
