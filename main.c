@@ -165,8 +165,8 @@ int ints ()
 int	main(void)
 {
 	//ints();
-	printf("\noriginal = %d\n", printf("%-7x", 33));
-	printf("\nmy = %d\n", ft_printf("%-7x", 33));
+	printf("\noriginal = %d\n", printf("%-5.0x", 0));
+	printf("\nmy = %d\n", ft_printf("%-5.0x", 0));
 	return (0);
 }
 

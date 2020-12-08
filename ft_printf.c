@@ -23,5 +23,5 @@ int	ft_printf(char *argv1, ...)
 	va_start(box->argument_pointer, argv1);
 	ft_pwtype(box);
 	va_end(box->argument_pointer);
-	return (box->retlen); 
+	return ((box->retlen) > 0) ? box->retlen : 0; 
 }
