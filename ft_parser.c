@@ -33,6 +33,8 @@ void	ft_pwtype(t_struct *box)
 					box->align = 1;
 				if ( box->argv1[i] == '+')
 					box->znak = '+';
+				if ( box->argv1[i] == ' ')
+					box->znak = 32;
 				if (box->argv1[i++] == 48)
 					box->zero = 1;
 			}
