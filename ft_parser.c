@@ -72,7 +72,7 @@ void	ft_pwtype(t_struct *box)
 			if (box->argv1[i] == 'x')
 				display_x(box);
 			if (box->argv1[i] == 'X')
-				ft_putnbr_bx(va_arg(box->argument_pointer, int));
+				display_bighex(box);
 			if (box->argv1[i] == 'p')
 				ft_putnbr_p(va_arg(box->argument_pointer, unsigned long));
 			if (box->argv1[i] == 'u')

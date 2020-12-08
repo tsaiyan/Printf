@@ -38,7 +38,7 @@ void			ft_putchar(char c, t_struct *box);
 void			ft_putstr(char *s);
 size_t			ft_strlen(const char *str);
 void			ft_putnbr_x(unsigned n, t_struct *box);
-void			ft_putnbr_bx(int n);
+void			ft_putnbr_bx(unsigned n, t_struct *box);
 void			ft_putnbr_p(unsigned long n);
 void			ft_putnbr_u(unsigned int n);
 int				ft_printf(char *argv1, ...);
@@ -50,4 +50,5 @@ void			ft_putnull(t_struct *box);
 void			display_char(t_struct *box);
 void			display_x(t_struct *box);
 void			display_int(t_struct *box);
+void			display_bighex(t_struct *box);
 #endif
