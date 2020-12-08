@@ -33,12 +33,10 @@ size_t	ft_strlen(const char *str)
 
 void	ft_putchar(char c, t_struct *box)
 {
-	if (c)
-	{
 		if (box)
 			box->retlen++;
 		write(1, &c, 1);
-	}
+	
 }
 
 size_t	ft_rank_count(long n, int base)

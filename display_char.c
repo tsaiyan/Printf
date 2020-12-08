@@ -18,7 +18,7 @@ void	display_char(t_struct *box)
 	int wight;
 
 	c = va_arg(box->argument_pointer, int);
-/* меняет знак, если n < 0 */
+
 	wight = box->wight - 1;
 /* если есть выравнивание */
 	if (box->align)
@@ -60,5 +60,5 @@ void	display_char(t_struct *box)
 			ft_putchar(c, box);
 		}
 	}
-	box->retlen += ft_rank_count(c, 10);
+	ft_putnull(box);
 }

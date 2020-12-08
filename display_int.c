@@ -78,5 +78,6 @@ void	display_int(t_struct *box)
 			(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
 		}
 	}
+	ft_putnull(box);
 	box->retlen += ft_rank_count(n, 10);
 }
