@@ -39,8 +39,7 @@ void			ft_putstr(char *s);
 size_t			ft_strlen(const char *str);
 void			ft_putnbr_x(unsigned n, t_struct *box);
 void			ft_putnbr_bx(unsigned n, t_struct *box);
-void			ft_putnbr_p(unsigned long n);
-void			ft_putnbr_u(unsigned int n);
+void			ft_putnbr_p(unsigned long n, t_struct *box);
 int				ft_printf(char *argv1, ...);
 int				ft_isdigit(int c);
 int				ft_atoi(char *str);
@@ -52,4 +51,6 @@ void			display_x(t_struct *box);
 void			display_int(t_struct *box);
 void			display_bighex(t_struct *box);
 void			display_unsigned(t_struct *box);
+void			display_pointer(t_struct *box);
+void			display_percent(t_struct *box);
 #endif
