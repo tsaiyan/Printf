@@ -71,19 +71,11 @@ void	display_str(t_struct *box)
 		if (box->zero)
 		{
 			if (box->accuracy)
-			{
-				while (wight-- > 0)
-					ft_putchar(32, box);
-				if (box->znak)
-				ft_putchar(box->znak, box);
-			}
-			else
-			{
-				if (box->znak)
-					ft_putchar(box->znak, box);
 				while (wight-- > 0)
 					ft_putchar(48, box);
-			}
+			else
+				while (wight-- > 0)
+					ft_putchar(48, box);
 			ft_putstr_ds(s, box);
 		}
 		/* если нет zero */
@@ -91,9 +83,6 @@ void	display_str(t_struct *box)
 		{
 			while (wight-- > 0)
 				ft_putchar(32, box);
-			/* есть есть знак */
-			if (box->znak)
-				ft_putchar(box->znak, box);
 			ft_putstr_ds(s, box);
 		}
 	}
