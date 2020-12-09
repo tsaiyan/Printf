@@ -32,7 +32,11 @@ void	display_str(t_struct *box)
 /* если есть выравнивание */
 	if (box->align)
 	{
-		ft_putstr_ds(c, box);
+		if (box->accuracy)
+			while(box->accuracy-- && *c)
+				ft_putchar(*c++, box);
+		else
+			(!box->accuracy && box->point) ? 0 :ft_putstr_ds(c, box);;
 		while (wight-- > 0)
 			ft_putchar(32, box);
 	}
