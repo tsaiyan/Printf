@@ -32,6 +32,18 @@ void	ft_putstr_ds(char *s, t_struct *box)
 		ft_putchar(*s++, box);
 }
 
+//static int ft_len_accuracy(char *str, t_struct *box)
+//{
+//	int i;
+//
+//	i = 0;
+//	while (*str++ && box->accuracy--)
+//	{
+//		i++;
+//	}
+//	return (0);
+//}
+
 void	display_str(t_struct *box)
 {
 	char *c;
@@ -40,6 +52,8 @@ void	display_str(t_struct *box)
 	int checkc;
 
 	c = va_arg(box->argument_pointer, char*);
+	if (!c)
+		c = "(null)";
 	checkc = ((!c && box->wight && !box->point) ? 6 : 0);
 	accdivstrlen = (box->accuracy) ? ft_strlen(c) - box->accuracy : 0;
 	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0) - checkc;

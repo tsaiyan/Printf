@@ -852,14 +852,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5CAC3933-8954-4226-AD53-BC53AEB1D275"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "display_str.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "display_str(box)"
             landmarkType = "9">
          </BreakpointContent>
@@ -868,14 +868,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "999CC6CD-9DB5-4147-82E2-C670266AE195"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "display_str.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "display_str(box)"
             landmarkType = "9">
          </BreakpointContent>

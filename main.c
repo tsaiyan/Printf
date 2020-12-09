@@ -164,10 +164,10 @@ int ints ()
 
 int	main(void)
 {
-	printf("\noriginal = %d\n", printf("%.09s", NULL));
-	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%32s", NULL));
-	printf("\nmy = %d\n", ft_printf("%32s", NULL));
+//	printf("\noriginal = %d\n", printf("%.09s", NULL));
+//	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
+	printf("\noriginal = %d\n", printf("%3.1s", NULL));
+	printf("\nmy = %d\n", ft_printf("%3.1s", NULL));
 	return (0);
 }
 
