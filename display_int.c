@@ -63,7 +63,7 @@ void	display_int(t_struct *box)
 			}
 			while (accuracy-- > 0)
 				ft_putchar(48, box);
-			ft_putnbr((int)n);
+		(!box->accuracy && box->point)? 0 :ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else

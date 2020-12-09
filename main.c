@@ -164,10 +164,20 @@
 
 int	main(void)
 {
+		char	c = 'a';
+		int		d = 2147483647;
+		int		e = -2147483648;
+
+		int		i = 8;
+		int		j = -12;
+		int		k = 123456789;
+		int		l = 0;
+		int		m = -12345678;
+
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 //	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%*s", -32, "abc"));
-	printf("\nmy = %d\n", ft_printf("%*s", -32, "abc"));
+	printf("\noriginal = %d\n", printf("%0.d", 0));
+	printf("\nmy = %d\n", ft_printf("%0.d", 0));
 	return (0);
 }
 
