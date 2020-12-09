@@ -27,6 +27,8 @@ void	display_str(t_struct *box)
 	int accdivstrlen;
 	
 	c = va_arg(box->argument_pointer, char*);
+	if (!c)
+		return(ft_putstr("(null)", box));
 	accdivstrlen = (box->accuracy) ? ft_strlen(c) - box->accuracy : 0;
 	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0);
 /* если есть выравнивание */
