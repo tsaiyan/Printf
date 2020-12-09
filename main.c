@@ -164,8 +164,8 @@ int ints ()
 
 int	main(void)
 {
-	printf("\noriginal = %d\n", printf("hello, %s.", NULL));
-	printf("\nmy = %d\n", ft_printf("hello, %s.", NULL));
+	printf("\noriginal = %d\n", printf("%32s", NULL));
+	printf("\nmy = %d\n", ft_printf("%32s", NULL));
 	return (0);
 }
 

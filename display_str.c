@@ -15,6 +15,11 @@
 void	ft_putstr_ds(char *s, t_struct *box)
 {
 	if (!s)
+	{
+			ft_putstr_ds("(null)", box);
+			
+	}
+	if (!s)
 		return ;
 	while (*s)
 		ft_putchar(*s++, box);
@@ -27,10 +32,8 @@ void	display_str(t_struct *box)
 	int accdivstrlen;
 	
 	c = va_arg(box->argument_pointer, char*);
-	if (!c)
-		return(ft_putstr("(null)", box));
 	accdivstrlen = (box->accuracy) ? ft_strlen(c) - box->accuracy : 0;
-	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0);
+	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0) - ((!c) ? 6 : 0);
 /* если есть выравнивание */
 	if (box->align)
 	{
