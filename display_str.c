@@ -24,10 +24,11 @@ void	display_str(t_struct *box)
 {
 	char *c;
 	int wight;
-
+	int accdivstrlen;
+	
 	c = va_arg(box->argument_pointer, char*);
-
-	wight = box->wight - (int)ft_strlen(c);
+	accdivstrlen = (box->accuracy) ? ft_strlen(c) - box->accuracy : 0;
+	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0);
 /* если есть выравнивание */
 	if (box->align)
 	{

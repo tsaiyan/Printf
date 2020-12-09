@@ -21,9 +21,9 @@ void	ft_putstr(char *s, t_struct *box)
 		ft_putchar(*s++, box);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (str[i])

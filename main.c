@@ -164,9 +164,8 @@ int ints ()
 
 int	main(void)
 {
-	//char str[] = "%5%";
-	printf("\noriginal = %d\n", printf("%.3s", "hello"));
-	printf("\nmy = %d\n", ft_printf("%.3s", "hello"));
+	printf("\noriginal = %d\n", printf("%32s", "abc"));
+	printf("\nmy = %d\n", ft_printf("%32s", "abc"));
 	return (0);
 }
 
