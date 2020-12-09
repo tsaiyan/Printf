@@ -166,8 +166,8 @@ int	main(void)
 {
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 //	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%-7.5s", "bombastic"));
-	printf("\nmy = %d\n", ft_printf("%-7.5s", "bombastic"));
+	printf("\noriginal = %d\n", printf("%*s", -32, "abc"));
+	printf("\nmy = %d\n", ft_printf("%*s", -32, "abc"));
 	return (0);
 }
 

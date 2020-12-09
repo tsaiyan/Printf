@@ -47,6 +47,11 @@ void	ft_pwtype(t_struct *box)
 					box->wight *= 10;
 					box->wight += box->argv1[i++] - 48;
 				}
+			if (box->wight < 0)
+			{
+				box->align = 1;
+				box->wight *= -1;
+			}
 /* запись точности */
 			if (box->argv1[i] == '.')
 			{
