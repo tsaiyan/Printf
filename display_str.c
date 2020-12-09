@@ -63,9 +63,11 @@ void	display_str(t_struct *box)
 			while (wight-- > 0)
 				ft_putchar(32, box);
 			/* есть есть знак */
-			if (box->znak)
-				ft_putchar(box->znak, box);
-			(!box->accuracy && box->point) ? 0 :ft_putstr_ds(c, box);
+			if (box->accuracy)
+				while(box->accuracy-- && *c)
+					ft_putchar(*c++, box);
+			else
+				(!box->accuracy && box->point) ? 0 :ft_putstr_ds(c, box);
 		}
 	}
 	ft_putnull(box);
