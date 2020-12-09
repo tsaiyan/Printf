@@ -14,9 +14,16 @@
 
 void	ft_putstr_ds(char *s, t_struct *box)
 {
+	char *arnull;
+	
+	arnull = "(null)";
 	if (!s)
 	{
-			ft_putstr_ds("(null)", box);
+		if (box->accuracy)
+			while (box->accuracy--)
+				ft_putchar(*arnull++, box);
+		else
+			ft_putstr(arnull, box);
 			
 	}
 	if (!s)
@@ -73,7 +80,7 @@ void	display_str(t_struct *box)
 			while (wight-- > 0)
 				ft_putchar(32, box);
 			/* есть есть знак */
-			if (box->accuracy)
+			if (box->accuracy && c)
 				while(box->accuracy-- && *c)
 					ft_putchar(*c++, box);
 			else
