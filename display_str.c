@@ -27,7 +27,7 @@ void	display_str(t_struct *box)
 
 	c = va_arg(box->argument_pointer, char*);
 
-	wight = box->wight - 1;
+	wight = box->wight - (int)ft_strlen(c);
 /* если есть выравнивание */
 	if (box->align)
 	{
