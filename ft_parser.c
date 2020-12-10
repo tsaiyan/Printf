@@ -11,6 +11,19 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+static void ft_write_flags(size_t i, t_struct *box)
+{
+	{
+		if ( box->format[i] == '-')
+			box->align = 1;
+		if ( box->format[i] == '+')
+			box->znak = '+';
+		if ( box->format[i] == ' ')
+			box->znak = 32;
+		if (box->format[i] == 48)
+			box->zero = 1;
+	}
+}
 
 void	ft_parser(t_struct *box)
 {
@@ -27,17 +40,9 @@ void	ft_parser(t_struct *box)
 		if (box->format[i++] == '%')
 		{
 /* запись align, и знака +- и нуля*/
-			while (box->format[i] == 48 || box->format[i] == 32 || box->format[i] == '-' || box->format[i] == '+')
-			{
-				if ( box->format[i] == '-')
-					box->align = 1;
-				if ( box->format[i] == '+')
-					box->znak = '+';
-				if ( box->format[i] == ' ')
-					box->znak = 32;
-				if (box->format[i++] == 48)
-					box->zero = 1;
-			}
+			while (box->format[i] == 48 || box->format[i] == 32 \
+				   || box->format[i] == '-' || box->format[i] == '+')
+				ft_write_flags(i++, box);
 /* запись ширины */
 			if (box->format[i] == '*' && (++i))
 				box->wight = va_arg(box->ap, int);
