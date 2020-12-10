@@ -36,11 +36,11 @@
 //
 //
 //	printf("------------------------ \n");
-//	printf("      *.* \n");
+//	printf("      1.0 \n");
 //	printf("------------------------ \n");
-//	printf("printf(""|%%*.*d|\\n"", 10, 5, 11); \n\n");
-//	printf("original :|%*.*d|\n", 10, 5, 11);
-//	ft_printf("yours    :|%*.*d|\n", 10, 5, 11);
+//	printf("printf(""|%%1.0d|\\n"", 10, 5, 11); \n\n");
+//	printf("original :|%1.0d|\n", 10, 5, 11);
+//	ft_printf("yours    :|%1.0d|\n", 10, 5, 11);
 //	printf("\n......\n\n");
 //
 //	printf("------------------------\n");
@@ -188,8 +188,8 @@ int	main(void)
 	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 //	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%.i, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
-	printf("\nmy = %d\n", ft_printf("%.i, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
+	printf("\noriginal = %d\n", printf("%01.0i, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+	printf("\nmy = %d\n", ft_printf("%01.0i, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 //	printf("\noriginal = %d\n", printf("%0.*d", -2, 55));
 //	printf("\nmy = %d\n", ft_printf("%0.*d", -2, 55));
 
