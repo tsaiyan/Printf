@@ -11,21 +11,63 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-static void ft_write_flags(t_struct *box)
+
+static void	ft_write_flags(t_struct *box)
 {
+	while (box->format[box->i] == 48 || box->format[box->i] == 32 || \
+				box->format[box->i] == '-' || box->format[box->i] == '+')
 	{
-		if ( box->format[box->i] == '-')
+		if (box->format[box->i] == '-')
 			box->align = 1;
-		if ( box->format[box->i] == '+')
+		if (box->format[box->i] == '+')
 			box->znak = '+';
-		if ( box->format[box->i] == ' ')
+		if (box->format[box->i] == ' ')
 			box->znak = 32;
 		if (box->format[box->i++] == 48)
 			box->zero = 1;
 	}
 }
 
-static void ft_call_to_functions(t_struct *box)
+static void	ft_write_wight(t_struct *box)
+{
+	if (box->format[box->i] == '*' && (++box->i))
+		box->wight = va_arg(box->ap, int);
+	else
+		while (ft_isdigit(box->format[box->i]))
+		{
+			box->wight *= 10;
+			box->wight += box->format[box->i++] - 48;
+		}
+	if (box->wight < 0)
+	{
+		box->align = 1;
+		box->wight *= -1;
+	}
+}
+
+static void	ft_write_precision(t_struct *box)
+{
+	if (box->format[box->i] == '.')
+	{
+		box->point = 1;
+		if (box->format[++box->i] == '*')
+		{
+			box->precision = va_arg(box->ap, int);
+			box->i++;
+		}
+		else
+		{
+			box->precision = 0;
+			while (ft_isdigit(box->format[box->i]))
+			{
+				box->precision *= 10;
+				box->precision += box->format[box->i++] - 48;
+			}
+		}
+	}
+}
+
+static void	ft_call_to_functions(t_struct *box)
 {
 	if (box->format[box->i] == 'd' || box->format[box->i] == 'i')
 		display_int(box);
@@ -47,7 +89,7 @@ static void ft_call_to_functions(t_struct *box)
 		display_8(box);
 }
 
-void	ft_parser(t_struct *box)
+void		ft_parser(t_struct *box)
 {
 	size_t	len;
 
@@ -58,43 +100,9 @@ void	ft_parser(t_struct *box)
 			ft_putchar(box->format[box->i++], box);
 		if (box->format[box->i++] == '%')
 		{
-/* запись align, и знака +- и нуля*/
-			while (box->format[box->i] == 48 || box->format[box->i] == 32 \
-				   || box->format[box->i] == '-' || box->format[box->i] == '+')
-				ft_write_flags(box);
-/* запись ширины */
-			if (box->format[box->i] == '*' && (++box->i))
-				box->wight = va_arg(box->ap, int);
-			else
-				while (ft_isdigit(box->format[box->i]))
-				{
-					box->wight *= 10;
-					box->wight += box->format[box->i++] - 48;
-				}
-			if (box->wight < 0)
-			{
-				box->align = 1;
-				box->wight *= -1;
-			}
-/* запись точности */
-			if (box->format[box->i] == '.')
-			{
-				box->point = 1;
-				if (box->format[++box->i] == '*')
-				{
-					box->precision = va_arg(box->ap, int);
-					box->i++;
-				}
-				else
-				{
-					box->precision = 0;
-					while (ft_isdigit(box->format[box->i]))
-					{
-						box->precision *= 10;
-						box->precision += box->format[box->i++] - 48;
-					}
-				}
-			}
+			ft_write_flags(box);
+			ft_write_wight(box);
+			ft_write_precision(box);
 			ft_call_to_functions(box);
 		}
 	}
