@@ -76,7 +76,11 @@ void	display_bighex(t_struct *box)
 			{
 				if (box->znak)
 					ft_putchar(box->znak, box);
-				while (wight-- > 0)
+				if (ft_crutch(n, box))
+					while (wight-- > 0)
+						ft_putchar(32, box);
+				else
+					while (wight-- > 0)
 					ft_putchar(48, box);
 			}
 			while (precision-- > 0)

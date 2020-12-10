@@ -45,7 +45,7 @@ void	display_unsigned(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->precision > 0)
+			if (box->precision >= 0)
 			{
 				while (wight-- > 0)
 					ft_putchar(32, box);

@@ -83,3 +83,8 @@ void	ft_putnbr(long n)
 	ft_putchar(res % 10 + 48, NULL);
 }
 
+
+int ft_crutch	(long n, t_struct *box)
+{
+	return ((!n && !box->precision && box->point)? 1 : 0);
+}
