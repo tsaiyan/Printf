@@ -18,7 +18,7 @@ void	display_unsigned(t_struct *box)
 	int precision;
 	int wight;
 
-	n = va_arg(box->ap, int);
+	n = va_arg(box->ap, unsigned);
 /* меняет знак, если n < 0 */
 	precision = (int)(box->precision - ft_rank_count(n, 10));
 	wight = box->wight - ((precision > 0) ? precision : 0) - (int)ft_rank_count(n, 10)\
@@ -61,7 +61,7 @@ void	display_unsigned(t_struct *box)
 			}
 			while (precision-- > 0)
 				ft_putchar(48, box);
-			ft_putnbr((int)n);
+			(!n && box->point && !box->precision) ? box->retlen-- : ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else
@@ -76,6 +76,6 @@ void	display_unsigned(t_struct *box)
 			(!n && !box->precision && box->point)? box->retlen-- : ft_putnbr(n);
 		}
 	}
-	ft_putnull(box);
 	box->retlen += ft_rank_count(n, 10);
+	ft_putnull(box);
 }

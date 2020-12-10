@@ -79,6 +79,5 @@ void	display_int(t_struct *box)
 		}
 	}
 	box->retlen += ft_rank_count(n, 10);
-	
 	ft_putnull(box);
 }

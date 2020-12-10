@@ -34,7 +34,7 @@ void	ft_putnbr_bx(unsigned n, t_struct *box)
 
 void	display_bighex(t_struct *box)
 {
-	long n;
+	unsigned n;
 	int precision;
 	int wight;
 
@@ -81,7 +81,7 @@ void	display_bighex(t_struct *box)
 			}
 			while (precision-- > 0)
 				ft_putchar(48, box);
-			ft_putnbr_bx((int)n, box);
+			(!n && box->point && !box->precision) ? 0 : ft_putnbr_bx((int)n, box);
 		}
 		/* если нет zero */
 		else
