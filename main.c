@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:14:06 by tsaiyan           #+#    #+#             */
-/*   Updated: 2020/12/02 13:14:08 by tsaiyan          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ft_printf.h"
 //int ints ()
@@ -188,10 +177,10 @@ int	main(void)
 	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 //	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%01.0i, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-	printf("\nmy = %d\n", ft_printf("%01.0i, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d, %01.0d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-//	printf("\noriginal = %d\n", printf("%0.*d", -2, 55));
-//	printf("\nmy = %d\n", ft_printf("%0.*d", -2, 55));
+	printf("\noriginal = %d\n", printf("%3X", a));
+	printf("\nmy = %d\n", ft_printf("%3X", a));
+//	printf("\noriginal = %d\n", printf("%0.3d", -2, 55));
+//	printf("\nmy = %d\n", ft_printf("%0.3d", -2, 55));
 
 	return (0);
 }

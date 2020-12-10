@@ -38,7 +38,7 @@ void	display_x(t_struct *box)
 	int precision;
 	int wight;
 
-	n = va_arg(box->ap, int);
+	n = va_arg(box->ap, unsigned);
 /* меняет знак, если n < 0 */
 	precision = (int)(box->precision - ft_rank_count(n, 16));
 	wight = box->wight - ((precision > 0) ? precision : 0) - (int)ft_rank_count(n, 16)\
