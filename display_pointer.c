@@ -31,7 +31,7 @@ void	ft_putnbr_p(unsigned long n, t_struct *box)
 		}
 	if (!box->precision)
 		ft_putstr(box->ox, box);
-	if (!n && !box->precision && box->point)
+	if (ft_crutch(n, box))
 		return ;
 	while (result_array[len])
 	ft_putchar(result_array[len++], box);
@@ -48,7 +48,7 @@ void	display_pointer(t_struct *box)
 	precision = (int)(box->precision - ft_rank_count(n, 16));
 	wight = box->wight - ((precision > 0) ? precision : 0) - (int)ft_rank_count(n, 16)\
 															- 2;
-	(!n && !box->precision && box->point)? wight++ : 0;
+	(ft_crutch(n, box))? wight++ : 0;
 /* если есть выравнивание */
 	if (box->align)
 	{
@@ -59,7 +59,7 @@ void	display_pointer(t_struct *box)
 		}
 		while (precision-- > 0)
 			ft_putchar(48, box);
-		(!n && !box->precision && box->point)? 0 : ft_putnbr_p(n, box);
+		(ft_crutch(n, box))? 0 : ft_putnbr_p(n, box);
 		wight += ((box->ox) ? 1 : 0);
 		while (wight-- > 0)
 			ft_putchar(32, box);
@@ -98,7 +98,7 @@ void	display_pointer(t_struct *box)
 				ft_putstr(box->ox, box);
 			while (precision-- > 0)
 				ft_putchar(48, box);
-			(!n && !box->precision && box->point)? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
+			(ft_crutch(n, box))? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
 		}
 	}
 	ft_putnull(box);

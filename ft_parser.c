@@ -87,6 +87,8 @@ void	ft_parser(t_struct *box)
 				display_unsigned(box);
 			if (box->format[i] == '%')
 				display_percent(box);
+			if (box->format[i] == 'o')
+				display_8(box);
 			i++;
 		}
 //		if (box->format[i] == '\n')

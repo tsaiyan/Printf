@@ -25,11 +25,11 @@
 //
 //
 //	printf("------------------------ \n");
-//	printf("      1.0 \n");
+//	printf("      10.0 \n");
 //	printf("------------------------ \n");
-//	printf("printf(""|%%1.0d|\\n"", 10, 5, 11); \n\n");
-//	printf("original :|%1.0d|\n", 10, 5, 11);
-//	ft_printf("yours    :|%1.0d|\n", 10, 5, 11);
+//	printf("printf(""|%%10.0d|\\n"", 10, 5, 11); \n\n");
+//	printf("original :|%10.0d|\n", 10, 5, 11);
+//	ft_printf("yours    :|%10.0d|\n", 10, 5, 11);
 //	printf("\n......\n\n");
 //
 //	printf("------------------------\n");
@@ -176,9 +176,9 @@ int	main(void)
 	char	*u = "-0";
 	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
-//	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X",b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
-	printf("\nmy = %d\n", ft_printf("%01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X, %01.0u, %01.0x, %01.0X", b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e));
+////	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
+	printf("\noriginal = %d\n", printf("%.*o", -3, 12345));
+	printf("\nmy = %d\n", ft_printf("%.*o", -3, 12345));
 //	printf("\noriginal = %d\n", printf("%0.3d", -2, 55));
 //	printf("\nmy = %d\n", ft_printf("%0.3d", -2, 55));
 
