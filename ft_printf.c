@@ -19,6 +19,7 @@ int	ft_printf(char *format, ...)
 	box = malloc(sizeof(t_struct));
 	box->format = format;
 	box->retlen = 0;
+	box->i = 0;
 	ft_putnull(box);
 	va_start(box->ap, format);
 	ft_parser(box);

@@ -29,6 +29,7 @@ typedef struct	s_list
 	int			point;
 	int			retlen;
 	char		*ox;
+	size_t		i;
 
 	va_list		ap;
 }				t_struct;
