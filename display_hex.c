@@ -11,86 +11,51 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putstr_ds(char *s, t_struct *box)
+void	ft_putnbr_x(unsigned n, t_struct *box)
 {
-	char *arnull;
-	
-	arnull = "(null)";
-	if (!s)
-	{
-		if (box->accuracy)
-			while (box->accuracy-- && *arnull)
-				ft_putchar(*arnull++, box);
-		else
-			ft_putstr(arnull, box);
-			
-	}
-	if (!s)
-		return ;
-	while (*s)
-		ft_putchar(*s++, box);
-}
-
-//static int ft_len_accuracy(char *str, t_struct *box)
-//{
-//	int i;
-//
-//	i = 0;
-//	while (*str++ && box->accuracy--)
-//	{
-//		i++;
-//	}
-//	return (0);
-//}
-
-char	*ft_write_c(t_struct *box)
-{
-	int i;
 	char *array;
-	char result[box->accuracy + 1];
-	char *pres;
-	char *start;
+	char result_array[ft_rank_count(n, 16) + 1];
+	size_t len;
 
-	pres = result;
-	start = pres;
-	array = "(null)";
-	i = box->accuracy;
-	if (!box->point)
-		return ("(null)");
+	len = ft_rank_count(n, 16);
+	array = "0123456789abcdef";
+	result_array[len] = '\0';
+	if (n == 0)
+		result_array[--len] = 48;
 	else
-		while (i--)
+		while (n != 0)
 		{
-			*pres++ = *array++;
+			result_array[--len] = array[n % 16];
+			n /= 16;
 		}
-	return (start);
+	while (result_array[len])
+	ft_putchar(result_array[len++], box);
 }
 
-void	display_str(t_struct *box)
+void	display_x(t_struct *box)
 {
-	char *c;
+	unsigned n;
+	int precision;
 	int wight;
-	int accdivstrlen;
-	int checkc;
 
-	c = va_arg(box->argument_pointer, char*);
-	checkc = ((!c && box->wight && !box->point) ? 6 : 0);
-	accdivstrlen = (box->accuracy) ? ft_strlen(c) - box->accuracy : 0;
-	wight = box->wight - ft_strlen(c) + (accdivstrlen > 0 ? accdivstrlen : 0) - checkc;
+	n = va_arg(box->ap, unsigned);
+/* меняет знак, если n < 0 */
+	precision = (int)(box->precision - ft_rank_count(n, 16));
+	wight = box->wight - ((precision > 0) ? precision : 0) - (int)ft_rank_count(n, 16)\
+															- ((box->znak) ? 1 : 0);
+	(ft_crutch(n, box))? wight++ : 0;
 /* если есть выравнивание */
-	if (!c)
-	{
-		c = "(null)";
-		if (box->accuracy)
-			c += box->accuracy;
-	}
 	if (box->align)
 	{
-		if (box->accuracy)
-			while(box->accuracy-- && *c)
-				ft_putchar(*c++, box);
-		else
-			(!box->accuracy && box->point) ? 0 :ft_putstr_ds(c, box);;
+		if (box->znak)
+		{
+			ft_putchar(box->znak, box);
+			wight--;
+		}
+		while (precision-- > 0)
+			ft_putchar(48, box);
+		(ft_crutch(n, box))? 0 : ft_putnbr_x((int)n, box);
+		wight += ((box->znak) ? 1 : 0);
 		while (wight-- > 0)
 			ft_putchar(32, box);
 	}
@@ -100,7 +65,7 @@ void	display_str(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->accuracy)
+			if (box->precision > 0)
 			{
 				while (wight-- > 0)
 					ft_putchar(32, box);
@@ -111,10 +76,16 @@ void	display_str(t_struct *box)
 			{
 				if (box->znak)
 					ft_putchar(box->znak, box);
-				while (wight-- > 0)
+				if ((box->point && !box->precision))
+					while (wight-- > 0)
+						ft_putchar(32, box);
+				else
+					while (wight-- > 0)
 					ft_putchar(48, box);
 			}
-			ft_putstr_ds(c, box);
+			while (precision-- > 0)
+				ft_putchar(48, box);
+				(ft_crutch(n, box)) ? 0 : ft_putnbr_x((int)n, box);
 		}
 		/* если нет zero */
 		else
@@ -122,11 +93,11 @@ void	display_str(t_struct *box)
 			while (wight-- > 0)
 				ft_putchar(32, box);
 			/* есть есть знак */
-			if (box->accuracy && c)
-				while(box->accuracy-- && *c)
-					ft_putchar(*c++, box);
-			else
-				(!box->accuracy && box->point) ? 0 :ft_putstr_ds(c, box);
+			if (box->znak)
+				ft_putchar(box->znak, box);
+			while (precision-- > 0)
+				ft_putchar(48, box);
+			(ft_crutch(n, box))? 0 : ft_putnbr_x((int)n, box);
 		}
 	}
 	ft_putnull(box);

@@ -55,6 +55,7 @@
 		97F0DBDA2577A044004B1656 /* ft_printf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf.h; sourceTree = "<group>"; };
 		97F0DBDB2577A044004B1656 /* ft_printf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf.c; sourceTree = "<group>"; };
 		97F0DBDD2577B1C8004B1656 /* ft_parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_parser.c; sourceTree = "<group>"; };
+		97F0DC202577C324004B1656 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libft; sourceTree = "<group>"; };
 		97F0DC212577C948004B1656 /* ft_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_utils.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +89,7 @@
 				97619F72257FDD4900336373 /* display_str.c */,
 				978DE6B525826BB9008DA1FD /* display_8.c */,
 				97F0DC212577C948004B1656 /* ft_utils.c */,
+				97F0DC202577C324004B1656 /* libft */,
 				97C829B62578DA91002D9407 /* myprintf */,
 				9712C8BE257E5F3A008B97C2 /* Makefile */,
 			);

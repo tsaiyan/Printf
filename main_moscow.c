@@ -15,7 +15,7 @@
 #include <limits.h>
 #include "ft_printf.h"
 
-int	main_2(void)
+int	main2(void)
 {
 	int	*tab = (int*)malloc(sizeof(int) * 10);
 	int	*tab2 = (int*)malloc(0);
@@ -23,49 +23,28 @@ int	main_2(void)
 	str = "hello";
 	char	*line;
 	line = "\0";
-
+	
+	ft_printf("%s\n", "start - ---- - - -- - -- ");
+	printf("*|%.10s|\n", "hello");
 	ft_printf("*|%.10s|\n", "hello");
-	printf("|%020p|\n", &str);
-	ft_printf("*|%020p|\n", &str);
-	printf("|%010p|\n", line);
-	ft_printf("*|%010p|\n", line);
-	ft_printf("01) my       PRINTF : |%-0.5d|\n", -234);
-	printf("02) standart PRINTF : |%-0.5d|\n", -234);
-	printf("%x\n", INT_MIN - 10);
-	ft_printf("%x\n", INT_MIN - 10);
+
 	printf("%d", printf("this %d number", 17));
-	// printf("\n");
+	printf("\n");
 	ft_printf("%d", ft_printf("this %d number", 17));
+	printf("\n");
 	printf("%014d\n", INT_MIN);
 	ft_printf("%014d\n", INT_MIN);
-	ft_printf("%ZZZFFFFF", "help");
-	printf("01) standart PRINTF : |%+-0d\n", 44);
-	ft_printf("01) my       PRINTF : |%+-0d\n", 44);
-	printf("01) standart PRINTF : |%-+0+-+-+d\n", 44);
-	ft_printf("01) my       PRINTF : |%-+0+-+-+d\n", 44);
-	printf("01) standart PRINTF : |%#s|\n", NULL);
-	ft_printf("01) my       PRINTF : |%#s|\n", NULL);
-	printf("02) standart PRINTF : |%#p|\n", NULL);
-	ft_printf("02) my       PRINTF : |%#p|\n", NULL);
-	printf("03) standart PRINTF : |%#p|\n", &str);
-	ft_printf("03) my       PRINTF : |%#p|\n", &str);
-	printf("04) standart PRINTF : |% #i|\n", 15);
-	ft_printf("04) my       PRINTF : |% #i|\n", 15);
 	printf("05) standart PRINTF : |%+i|\n", 5);
 	ft_printf("05) my       PRINTF : |%+i|\n", 5);
 	printf("06) standart PRINTF : |%037lx|\n", 22337203685477ul);
 	ft_printf("06) my       PRINTF : |%037lx|\n", 22337203685477ul);
 	printf("06) standart PRINTF : |%#05x|\n", 432);
 	ft_printf("06) my       PRINTF : |%#05x|\n", 432);
-	printf("%#s\n", NULL);
-	ft_printf("%#s\n", NULL);
+	
 	ft_printf("%%05.*d|* = 0|                           *|{%05.*d}\n", 0, 42);
 	printf("%%05.*d|* = 0|                            |{%05.*d}\n", 0, 42);
 	ft_printf("{%%20.*s}|* = 0|                         *|{%020.*s}\n", 0, "42");
-	printf("{%%20.*s}|* = 0|                          |{%020.*s}\n", 0, "42");
-	ft_printf("p: Hello wo|%----4c| |%1c| rld | %10c| |%-c| ??\n", '\0', '\n\n', (char)777, 0);
-	printf("p: Hello wo|%----4c| |%1c| rld | %10c| |%-c| ??\n", '\0', '\n\n', (char)777, 0);
-	ft_printf("%15p %*.7d MIXED %*.*s TEST! %%%05%%% I %10.7u H%dPE %c%c %.3sSH %10.6x%-7.5X YOUR PRINTF!%%\n", &str, 8, -42, -5, 3, "woop", 15975, 0, 'I', 'T', "CRASH", 15, 15013);
+
 	printf("%15p %*.7d MIXED %*.*s TEST! %%%05%%% I %10.7u H%dPE %c%c %.3sSH %10.6x%-7.5X YOUR PRINTF!%%\n", &str, 8, -42, -5, 3, "woop", 15975, 0, 'I', 'T', "CRASH", 15, 15013);
 	ft_printf("%10.6x%-7.5X\n", 15, 15013);
 	printf("%10.6x%-7.5X\n", 15, 15013);
@@ -76,14 +55,7 @@ int	main_2(void)
 	ft_printf("%%05.*d|* = -15|                           *|{%05.*d}\n", -15, 42);
 	printf("%%05.*d|* = -15|                            |{%05.*d}\n", -15, 42);
 	ft_printf("{%%20.*s}|* = -5|                         *|{%020.*s}\n", -5, "42");
-	printf("{%%20.*s}|* = -5|                          |{%020.*s}\n", -5, "42");
-	ft_printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483648, -2147483648, -2147483648, -2147483648);
-	printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483648, -2147483648, -2147483648, -2147483648);
-	ft_printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483649, -2147483649, -2147483649, -2147483649);
-	printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483649, -2147483649, -2147483649, -2147483649);
-	ft_printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483650, -2147483650, -2147483650, -2147483650);
-	printf("|%%x|%%15x|%%-15x|%%015x|                |%x|%15x|%-15x|%015x|\n", -2147483650, -2147483650, -2147483650, -2147483650);
-	
+
 	
 
 
@@ -283,8 +255,7 @@ int	main_2(void)
 	ft_printf("28) my       PRINTF : |%03.5d|\n", -5);
 	printf("29) standart PRINTF : |%d| |%d|\n", INT_MAX, INT_MIN);
 	ft_printf("29) my       PRINTF : |%d| |%d|\n", INT_MAX, INT_MIN);
-	printf("30) standart PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
-	ft_printf("30) my       PRINTF : |%d| |%d|\n", INT_MAX + 1, INT_MIN - 1);
+	
 	printf("31) standart PRINTF : |%.d|\n", 0);
 	ft_printf("31) my       PRINTF : |%.d|\n", 0);
 	printf("32) standart PRINTF : |%.d|\n", 100);
@@ -421,24 +392,20 @@ int	main_2(void)
 	ft_printf("02) my       PRINTF : |%-5%|\n");
 	printf("03) standart PRINTF : |%.0%|\n");
 	ft_printf("03) my       PRINTF : |%.0%|\n");
-	//// printf("04) standart PRINTF : |");
-	//// printf("kekw %Z");
-	//// printf("|\n");
-	//// ft_printf("04) my       PRINTF : |");
-	//// ft_printf("kekw %Z");
-	//// ft_printf("|\n");
-	//// printf("05) standart PRINTF : |");
-	//// int a = printf("%%");
-	//// printf("|\n");
-	//// ft_printf("05) my       PRINTF : |");
-	//// int b = ft_printf("%%");
-	//// ft_printf("|\n");
-	//// printf("06) standart PRINTF : |");
-	//// printf("%%%");
-	//// printf("|\n");
-	//// ft_printf("06) my       PRINTF : |");
-	//// ft_printf("%%%");
-	//// ft_printf("|\n\n");
+	 printf("04) standart PRINTF : |");
+	 printf("|\n");
+	 ft_printf("04) my       PRINTF : |");
+	 ft_printf("kekw %Z");
+	 ft_printf("|\n");
+	 printf("05) standart PRINTF : |");
+	 printf("|\n");
+	 ft_printf("05) my       PRINTF : |");
+
+	 printf("06) standart PRINTF : |");
+
+	 ft_printf("06) my       PRINTF : |");
+	 ft_printf("%%%");
+	 ft_printf("|\n\n");
 	ft_printf("return for st PRINTF : %d\nreturn for my PRINTF : %d\n\n", printf("%%"), ft_printf("%%"));
 	ft_printf("return for st PRINTF : %d\nreturn for my PRINTF : %d\n\n", printf("%5%"), ft_printf("%5%"));
 	ft_printf("return for st PRINTF : %d\nreturn for my PRINTF : %d\n\n", printf("%.*s|\n", 5, "kekwait"), ft_printf("%.*s|\n", 5, "kekwait"));
