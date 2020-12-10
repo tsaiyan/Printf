@@ -164,20 +164,26 @@
 
 int	main(void)
 {
-		char	c = 'a';
-		int		d = 2147483647;
-		int		e = -2147483648;
-
-		int		i = 8;
-		int		j = -12;
-		int		k = 123456789;
-		int		l = 0;
-		int		m = -12345678;
-
+	static char	a01;
+	static unsigned char a02;
+	static short a03;
+	static unsigned short a04;
+	static int a05;
+	static unsigned int a06;
+	static long a07;
+	static unsigned long a08;
+	static long long a09;
+	static unsigned long long a10;
+	static char *a11;
+	static void *a12;
+	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 //	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("\noriginal = %d\n", printf("%0.d", 0));
-	printf("\nmy = %d\n", ft_printf("%0.d", 0));
+	printf("\noriginal = %d\n", printf("%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12));
+	printf("\nmy = %d\n", ft_printf("%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12));
+//	printf("\noriginal = %d\n", printf("%0.*d", -2, 55));
+//	printf("\nmy = %d\n", ft_printf("%0.*d", -2, 55));
+
 	return (0);
 }
 

@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(char *argv1, ...)
+int	ft_printf(char *format, ...)
 {
 	t_struct *box;
 
 	box = malloc(sizeof(t_struct));
-	box->argv1 = argv1;
+	box->format = format;
 	box->retlen = 0;
 	ft_putnull(box);
-	va_start(box->argument_pointer, argv1);
-	ft_pwtype(box);
-	va_end(box->argument_pointer);
+	va_start(box->ap, format);
+	ft_parser(box);
+	va_end(box->ap);
 	return ((box->retlen) > 0) ? box->retlen : 0; 
 }

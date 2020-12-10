@@ -12,40 +12,40 @@
 
 #include "ft_printf.h"
 
-void	ft_pwtype(t_struct *box)
+void	ft_parser(t_struct *box)
 {
 	size_t	i;
 	size_t	len;
 
 	i = 0;
-	len = ft_strlen(box->argv1);
-	while (box->argv1[i] && i < len)
+	len = ft_strlen(box->format);
+	while (box->format[i] && i < len)
 	{
 		/* печатаем все до % и потом после. */
-		while (box->argv1[i] != '%' && box->argv1[i])
-			ft_putchar(box->argv1[i++], box);
-		if (box->argv1[i++] == '%')
+		while (box->format[i] != '%' && box->format[i])
+			ft_putchar(box->format[i++], box);
+		if (box->format[i++] == '%')
 		{
 /* запись align, и знака +- и нуля*/
-			while (box->argv1[i] == 48 || box->argv1[i] == 32 || box->argv1[i] == '-' || box->argv1[i] == '+')
+			while (box->format[i] == 48 || box->format[i] == 32 || box->format[i] == '-' || box->format[i] == '+')
 			{
-				if ( box->argv1[i] == '-')
+				if ( box->format[i] == '-')
 					box->align = 1;
-				if ( box->argv1[i] == '+')
+				if ( box->format[i] == '+')
 					box->znak = '+';
-				if ( box->argv1[i] == ' ')
+				if ( box->format[i] == ' ')
 					box->znak = 32;
-				if (box->argv1[i++] == 48)
+				if (box->format[i++] == 48)
 					box->zero = 1;
 			}
 /* запись ширины */
-			if (box->argv1[i] == '*' && (++i))
-				box->wight = va_arg(box->argument_pointer, int);
+			if (box->format[i] == '*' && (++i))
+				box->wight = va_arg(box->ap, int);
 			else
-				while (ft_isdigit(box->argv1[i]))
+				while (ft_isdigit(box->format[i]))
 				{
 					box->wight *= 10;
-					box->wight += box->argv1[i++] - 48;
+					box->wight += box->format[i++] - 48;
 				}
 			if (box->wight < 0)
 			{
@@ -53,40 +53,43 @@ void	ft_pwtype(t_struct *box)
 				box->wight *= -1;
 			}
 /* запись точности */
-			if (box->argv1[i] == '.')
+			if (box->format[i] == '.')
 			{
 				box->point = 1;
-				if (box->argv1[++i] == '*')
+				if (box->format[++i] == '*')
 				{
-					box->accuracy = va_arg(box->argument_pointer, int);
+					box->precision = va_arg(box->ap, int);
 					i++;
 				}
 				else
-					while (ft_isdigit(box->argv1[i]))
+				{
+					box->precision = 0;
+					while (ft_isdigit(box->format[i]))
 					{
-						box->accuracy *= 10;
-						box->accuracy += box->argv1[i++] - 48;
+						box->precision *= 10;
+						box->precision += box->format[i++] - 48;
 					}
+				}
 			}
-			if (box->argv1[i] == 'd' || box->argv1[i] == 'i')
+			if (box->format[i] == 'd' || box->format[i] == 'i')
 				display_int(box);
-			if (box->argv1[i] == 'c')
+			if (box->format[i] == 'c')
 				display_char(box);
-			if (box->argv1[i] == 's')
+			if (box->format[i] == 's')
 				display_str(box);
-			if (box->argv1[i] == 'x')
+			if (box->format[i] == 'x')
 				display_x(box);
-			if (box->argv1[i] == 'X')
+			if (box->format[i] == 'X')
 				display_bighex(box);
-			if (box->argv1[i] == 'p')
+			if (box->format[i] == 'p')
 				display_pointer(box);
-			if (box->argv1[i] == 'u')
+			if (box->format[i] == 'u')
 				display_unsigned(box);
-			if (box->argv1[i] == '%')
+			if (box->format[i] == '%')
 				display_percent(box);
 			i++;
 		}
-//		if (box->argv1[i] == '\n')
+//		if (box->format[i] == '\n')
 //			write(1, "\n", 1);
 	}
 }

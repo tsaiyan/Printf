@@ -17,7 +17,7 @@ void	display_char(t_struct *box)
 	char c;
 	int wight;
 
-	c = va_arg(box->argument_pointer, int);
+	c = va_arg(box->ap, int);
 
 	wight = box->wight - 1;
 /* если есть выравнивание */
@@ -33,7 +33,7 @@ void	display_char(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->accuracy)
+			if (box->precision > 0)
 			{
 				while (wight-- > 0)
 					ft_putchar(32, box);

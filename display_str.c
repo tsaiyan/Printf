@@ -16,10 +16,10 @@ static void	ft_putstr_ds(char *s, t_struct *box)
 {
 	if (!s)
 		return ;
-	if (!box->accuracy && box->point)
+	if (!box->precision && box->point)
 		return ;
-	if (box->accuracy)
-		while (*s && box->accuracy--)
+	if (box->precision > 0)
+		while (*s && box->precision--)
 			ft_putchar(*s++, box);
 	else
 		while (*s)
@@ -31,17 +31,17 @@ static int	ft_strlen_ds (char *s, t_struct *box)
 	int precision;
 	int i;
 	
-	i = box->accuracy;
+	i = box->precision;
 	precision = 0;
 	result = 0;
-	if (box->point && !box->accuracy)
+	if (box->point && !box->precision)
 		return (0);
-	if (box->accuracy)
+	if (box->precision > 0)
 		while (s[precision] && i--)
 			precision++;
-	if (box->wight && !box->accuracy)
+	if (box->wight && !box->precision)
 		result = ft_strlen(s);
-	else if (box->accuracy && box->wight)
+	else if (box->precision > 0 && box->wight)
 		result += precision;
 	else
 		result = ft_strlen(s);
@@ -53,7 +53,7 @@ void	display_str(t_struct *box)
 	char *s;
 	int wight;
 
-	s = va_arg(box->argument_pointer, char*);
+	s = va_arg(box->ap, char*);
 	if (!s)
 		s = "(null)";
 	wight = (box->wight) ? box->wight - ft_strlen_ds(s, box) : 0;
@@ -70,9 +70,9 @@ void	display_str(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->accuracy)
+			if (box->precision > 0)
 				while (wight-- > 0)
-					ft_putchar(48, box);
+					ft_putchar(32, box);
 			else
 				while (wight-- > 0)
 					ft_putchar(48, box);

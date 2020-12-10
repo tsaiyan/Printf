@@ -18,7 +18,7 @@ void	ft_putnull(t_struct *box)
 	box->align = 0;
 	box->znak = 0;
 	box->zero = 0;
-	box->accuracy = 0;
+	box->precision = -1;
 	box->point = 0;
 	box->ox = "0x";
 }

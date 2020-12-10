@@ -20,20 +20,20 @@
 
 typedef struct	s_list
 {
-	char		*argv1;
+	char		*format;
 	int			wight;
 	int			align;
 	char		znak;
 	int			zero;
-	int			accuracy;
+	int			precision;
 	int			point;
 	int			retlen;
 	char		*ox;
 
-	va_list		argument_pointer;
+	va_list		ap;
 }				t_struct;
 
-void			ft_pwtype(t_struct *box);
+void			ft_parser(t_struct *box);
 void			display_int(t_struct *box);
 void			ft_putchar(char c, t_struct *box);
 void			ft_putstr(char *s, t_struct *box);

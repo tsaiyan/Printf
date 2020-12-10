@@ -15,15 +15,15 @@
 void	display_unsigned(t_struct *box)
 {
 	unsigned n;
-	int accuracy;
+	int precision;
 	int wight;
 
-	n = va_arg(box->argument_pointer, int);
+	n = va_arg(box->ap, int);
 /* меняет знак, если n < 0 */
-	accuracy = (int)(box->accuracy - ft_rank_count(n, 10));
-	wight = box->wight - ((accuracy > 0) ? accuracy : 0) - (int)ft_rank_count(n, 10)\
+	precision = (int)(box->precision - ft_rank_count(n, 10));
+	wight = box->wight - ((precision > 0) ? precision : 0) - (int)ft_rank_count(n, 10)\
 															- ((box->znak) ? 1 : 0);
-	(!n && !box->accuracy && box->point)? wight++ : 0;
+	(!n && !box->precision && box->point)? wight++ : 0;
 /* если есть выравнивание */
 	if (box->align)
 	{
@@ -32,9 +32,9 @@ void	display_unsigned(t_struct *box)
 			ft_putchar(box->znak, box);
 			wight--;
 		}
-		while (accuracy-- > 0)
+		while (precision-- > 0)
 			ft_putchar(48, box);
-		(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
+		(!n && !box->precision && box->point)? box->retlen-- : ft_putnbr(n);
 		wight += ((box->znak) ? 1 : 0);
 		while (wight-- > 0)
 			ft_putchar(32, box);
@@ -45,7 +45,7 @@ void	display_unsigned(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->accuracy)
+			if (box->precision > 0)
 			{
 				while (wight-- > 0)
 					ft_putchar(32, box);
@@ -59,7 +59,7 @@ void	display_unsigned(t_struct *box)
 				while (wight-- > 0)
 					ft_putchar(48, box);
 			}
-			while (accuracy-- > 0)
+			while (precision-- > 0)
 				ft_putchar(48, box);
 			ft_putnbr((int)n);
 		}
@@ -71,9 +71,9 @@ void	display_unsigned(t_struct *box)
 			/* есть есть знак */
 			if (box->znak)
 				ft_putchar(box->znak, box);
-			while (accuracy-- > 0)
+			while (precision-- > 0)
 				ft_putchar(48, box);
-			(!n && !box->accuracy && box->point)? box->retlen-- : ft_putnbr(n);
+			(!n && !box->precision && box->point)? box->retlen-- : ft_putnbr(n);
 		}
 	}
 	ft_putnull(box);

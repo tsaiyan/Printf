@@ -33,7 +33,7 @@ void	display_percent(t_struct *box)
 		/* если есть zero */
 		if (box->zero)
 		{
-			if (box->accuracy)
+			if (box->precision > 0)
 			{
 				while (wight-- > 0)
 					ft_putchar(32, box);
