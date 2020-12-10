@@ -25,6 +25,27 @@ static void ft_write_flags(size_t i, t_struct *box)
 	}
 }
 
+static void ft_call_to_functions(size_t i, t_struct *box)
+{
+	if (box->format[i] == 'd' || box->format[i] == 'i')
+		display_int(box);
+	if (box->format[i] == 'c')
+		display_char(box);
+	if (box->format[i] == 's')
+		display_str(box);
+	if (box->format[i] == 'x')
+		display_x(box);
+	if (box->format[i] == 'X')
+		display_bighex(box);
+	if (box->format[i] == 'p')
+		display_pointer(box);
+	if (box->format[i] == 'u')
+		display_unsigned(box);
+	if (box->format[i] == '%')
+		display_percent(box);
+	if (box->format[i++] == 'o')
+		display_8(box);
+}
 void	ft_parser(t_struct *box)
 {
 	size_t	i;
@@ -34,7 +55,6 @@ void	ft_parser(t_struct *box)
 	len = ft_strlen(box->format);
 	while (box->format[i] && i < len)
 	{
-		/* печатаем все до % и потом после. */
 		while (box->format[i] != '%' && box->format[i])
 			ft_putchar(box->format[i++], box);
 		if (box->format[i++] == '%')
@@ -76,26 +96,7 @@ void	ft_parser(t_struct *box)
 					}
 				}
 			}
-			if (box->format[i] == 'd' || box->format[i] == 'i')
-				display_int(box);
-			if (box->format[i] == 'c')
-				display_char(box);
-			if (box->format[i] == 's')
-				display_str(box);
-			if (box->format[i] == 'x')
-				display_x(box);
-			if (box->format[i] == 'X')
-				display_bighex(box);
-			if (box->format[i] == 'p')
-				display_pointer(box);
-			if (box->format[i] == 'u')
-				display_unsigned(box);
-			if (box->format[i] == '%')
-				display_percent(box);
-			if (box->format[i++] == 'o')
-				display_8(box);
+			ft_call_to_functions(i++, box);
 		}
-//		if (box->format[++i] == '\n')
-//			write(1, '\n', 2);
 	}
 }
