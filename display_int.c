@@ -63,7 +63,7 @@ void	display_int(t_struct *box)
 			}
 			while (precision-- > 0)
 				ft_putchar(48, box);
-		(!box->precision && box->point)? 0 :ft_putnbr((int)n);
+		(!box->precision && !n)? box->retlen-- :ft_putnbr((int)n);
 		}
 		/* если нет zero */
 		else
@@ -78,6 +78,7 @@ void	display_int(t_struct *box)
 			(!n && !box->precision && box->point)? box->retlen-- : ft_putnbr(n);
 		}
 	}
-	ft_putnull(box);
 	box->retlen += ft_rank_count(n, 10);
+	
+	ft_putnull(box);
 }
