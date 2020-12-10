@@ -22,10 +22,12 @@ typedef struct	s_list
 {
 	char		*format;
 	int			wight;
+	int			new_wight;
 	int			align;
 	char		znak;
 	int			zero;
 	int			precision;
+	int			new_precision;
 	int			point;
 	int			retlen;
 	char		*ox;
