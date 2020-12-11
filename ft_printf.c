@@ -15,8 +15,10 @@
 int	ft_printf(char *format, ...)
 {
 	t_struct *box;
+	int ret;
 
-	box = malloc(sizeof(t_struct));
+	if(!(box = malloc(sizeof(t_struct))))
+	   return (-1);
 	box->format = format;
 	box->retlen = 0;
 	box->i = 0;
@@ -24,5 +26,7 @@ int	ft_printf(char *format, ...)
 	va_start(box->ap, format);
 	ft_parser(box);
 	va_end(box->ap);
-	return ((box->retlen) > 0) ? box->retlen : 0; 
+	ret = box->retlen;
+	free(box);
+	return (ret);
 }
