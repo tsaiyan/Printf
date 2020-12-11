@@ -14,8 +14,6 @@
 
 static void	ft_putstr_ds(char *s, t_struct *box)
 {
-	if (!s)
-		return ;
 	if (!box->precision && box->point)
 		return ;
 	if (box->precision > 0)
