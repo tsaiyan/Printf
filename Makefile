@@ -1,4 +1,4 @@
-SRCS = ft_printf.c ft_putin.c ft_parser.c display_int.c ft_utils.c display_char.c display_hex.c display_bighex.c display_unsigned.c display_pointer.c display_percent.c  display_str.c display_8.c ft_utils_addition.c
+SRCS = ft_printf.c ft_putin.c ft_parser.c display_int.c ft_utils.c display_char.c display_hex.c display_bighex.c display_unsigned.c display_pointer.c display_percent.c  display_str.c display_8.c ft_utils_addition.c write_count.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -22,6 +22,8 @@ bonus: $(OBJS) $(BNSOBJS)
 
 .c.o:
 	$(CC) -c $< -o $@
+
+bonus:		all
 
 clean:
 	${RM} $(OBJS)

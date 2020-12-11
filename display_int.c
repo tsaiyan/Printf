@@ -16,7 +16,7 @@
 ** if format has align flag
 */
 
-static void	ft_align(long n, t_struct *box)
+static void	ft_align(unsigned long long n, t_struct *box)
 {
 	if (box->znak)
 	{
@@ -35,7 +35,7 @@ static void	ft_align(long n, t_struct *box)
 ** if format has zero flag
 */
 
-static void	ft_zero(long n, t_struct *box)
+static void	ft_zero(unsigned long long n, t_struct *box)
 {
 	if (box->precision >= 0)
 	{
@@ -60,7 +60,7 @@ static void	ft_zero(long n, t_struct *box)
 ** if format hasn't align and zero flags
 */
 
-static void	ft_noalign_nozero(long n, t_struct *box)
+static void	ft_noalign_nozero(unsigned long long n, t_struct *box)
 {
 	while (box->new_wight-- > 0)
 		ft_putchar(32, box);
@@ -75,13 +75,19 @@ static void	ft_noalign_nozero(long n, t_struct *box)
 ** main function for dislay ints
 */
 
+
 void		display_int(t_struct *box)
 {
-	long n;
+	unsigned long long n;
+	long long m;
 
-	n = va_arg(box->ap, int);
-	if (n < 0 && (box->znak = '-'))
-		n *= -1;
+	m = va_arg(box->ap, long long);
+	n = m;
+	if (m < 0)
+	{
+		n = m * -1;
+		box->znak = '-';
+	}
 	box->new_precision = (int)(box->precision - ft_rank_count(n, 10));
 	box->new_wight = box->wight - ((box->new_precision > 0) ? \
 	box->new_precision : 0) - (int)ft_rank_count(n, 10) - ((box->znak) ? 1 : 0);

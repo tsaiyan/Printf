@@ -21,4 +21,5 @@ void	ft_putin(t_struct *box)
 	box->precision = -1;
 	box->point = 0;
 	box->ox = "0x";
+	box->flag_int = 0;
 }

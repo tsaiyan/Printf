@@ -151,24 +151,18 @@
 //	return (0);
 //}
 
+#include "limits.h"
+
 int	main(void)
 {
-
-	
-//	printf("\noriginal = %d\n", printf("%.09s", NULL));
-////	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-//	printf("%c\n", 'c');
-//	ft_printf("%c\n", 'c');
-//	printf("\noriginal = %d\n", printf("%0.3d", -2, 55));
-//	printf("\nmy = %d\n", ft_printf("%0.3d", -2, 55));
-
-	int count;
-	printf ("this%n is a test\n", &count);
-	printf ("%d\n", count);
-	
-	count = 0;
-	ft_printf ("this%n is a test\n", &count);
-	ft_printf ("%d\n", count);
+	int z;
+	z = 1111;
+//	printf("%d %n\n", 1844674, &z);
+//	printf("%lld\n",z);
+//	z = 0;
+//	ft_printf("%d %n\n",  1844674, &z);
+//	printf("%lld\n",z);
+	printf("%h", z);
 	return (0);
 }
 

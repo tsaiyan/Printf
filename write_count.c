@@ -12,10 +12,25 @@
 
 #include "ft_printf.h"
 
-void write_count(t_struct *box)
+void	write_count(t_struct *box)
 {
-	int *n;
-
-	n = va_arg(box->ap, int*);
-	*n = box->retlen;
+	int *a;
+	long *aa;
+	long long *aaa;
+	
+	if (!box->flag_int)
+	{
+		a = va_arg(box->ap, int*);
+		*a = box->retlen;
+	}
+	else if (box->flag_int == 1)
+	{
+		aa = va_arg(box->ap, long *);
+		*aa = box->retlen;
+	}
+	else if (box->flag_int == 2)
+	{
+		aaa = va_arg(box->ap, long long *);
+		*aaa = box->retlen;
+	}
 }

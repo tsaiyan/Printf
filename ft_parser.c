@@ -19,16 +19,24 @@
 static void	ft_write_flags(t_struct *box)
 {
 	while (box->format[box->i] == 48 || box->format[box->i] == 32 || \
-				box->format[box->i] == '-' || box->format[box->i] == '+')
+				box->format[box->i] == '-' || box->format[box->i] == '+' || \
+		box->format[box->i] == 'l')
 	{
 		if (box->format[box->i] == '-')
 			box->align = 1;
-		if (box->format[box->i] == '+')
-			box->znak = '+';
 		if (box->format[box->i] == ' ')
 			box->znak = 32;
-		if (box->format[box->i++] == 48)
+		if (box->format[box->i] == 48)
 			box->zero = 1;
+		if (box->format[box->i] == '+')
+			box->znak = '+';
+		if (box->format[box->i++] == 'l')
+			box->flag_int = 1;
+		if (box->format[box->i] == 'l')
+		{
+			box->flag_int = 2;
+			box->i++;
+		}
 	}
 }
 
@@ -85,7 +93,9 @@ static void	ft_write_precision(t_struct *box)
 
 static void	ft_call_to_functions(t_struct *box)
 {
-	if (box->format[box->i] == 'd' || box->format[box->i] == 'i')
+	if (box->format[box->i] == 'd' || box->format[box->i] == 'i' || \
+		box->format[box->i] == 'l'
+		)
 		display_int(box);
 	if (box->format[box->i] == 'c')
 		display_char(box);

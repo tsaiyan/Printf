@@ -59,11 +59,11 @@ size_t	ft_rank_count(long n, int base)
 	return (i);
 }
 
-void	ft_putnbr(long n)
+void	ft_putnbr(unsigned long long n)
 {
-	unsigned res;
+	unsigned long long res;
 
-	res = (unsigned)n;
+	res = n;
 	if (res >= 10)
 		ft_putnbr(res / 10);
 	ft_putchar(res % 10 + 48, NULL);
