@@ -12,53 +12,47 @@
 
 #include "ft_printf.h"
 
-void	display_char(t_struct *box)
+static void	ft_no_align(char c, t_struct *box)
+{
+	if (box->zero)
+	{
+		if (box->precision > 0)
+		{
+			while (box->wight-- > 0)
+				ft_putchar(32, box);
+			if (box->znak)
+				ft_putchar(box->znak, box);
+		}
+		else
+		{
+			if (box->znak)
+				ft_putchar(box->znak, box);
+			while (box->wight-- > 0)
+				ft_putchar(48, box);
+		}
+		ft_putchar(c, box);
+	}
+	else
+	{
+		while (box->wight-- > 0)
+			ft_putchar(32, box);
+		ft_putchar(c, box);
+	}
+}
+
+void		display_char(t_struct *box)
 {
 	char c;
-	int wight;
 
 	c = va_arg(box->ap, int);
-
-	wight = box->wight - 1;
-/* если есть выравнивание */
+	box->wight--;
 	if (box->align)
 	{
 		ft_putchar(c, box);
-		while (wight-- > 0)
+		while (box->wight-- > 0)
 			ft_putchar(32, box);
 	}
-/* если нет выравнивания */
 	else
-	{
-		/* если есть zero */
-		if (box->zero)
-		{
-			if (box->precision > 0)
-			{
-				while (wight-- > 0)
-					ft_putchar(32, box);
-				if (box->znak)
-				ft_putchar(box->znak, box);
-			}
-			else
-			{
-				if (box->znak)
-					ft_putchar(box->znak, box);
-				while (wight-- > 0)
-					ft_putchar(48, box);
-			}
-			ft_putchar(c, box);
-		}
-		/* если нет zero */
-		else
-		{
-			while (wight-- > 0)
-				ft_putchar(32, box);
-			/* есть есть знак */
-			if (box->znak)
-				ft_putchar(box->znak, box);
-			ft_putchar(c, box);
-		}
-	}
+		ft_no_align(c, box);
 	ft_putnull(box);
 }

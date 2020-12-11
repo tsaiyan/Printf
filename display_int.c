@@ -48,7 +48,7 @@ static void	ft_zero(long n, t_struct *box)
 	(!box->precision && !n) ? box->retlen-- : ft_putnbr((int)n);
 }
 
-static void	ft_else(long n, t_struct *box)
+static void	ft_noalign_nozero(long n, t_struct *box)
 {
 	while (box->new_wight-- > 0)
 		ft_putchar(32, box);
@@ -77,7 +77,7 @@ void		display_int(t_struct *box)
 		if (box->zero)
 			ft_zero(n, box);
 		else
-			ft_else(n, box);
+			ft_noalign_nozero(n, box);
 	}
 	box->retlen += ft_rank_count(n, 10);
 	ft_putnull(box);
