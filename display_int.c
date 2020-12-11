@@ -25,7 +25,7 @@ static void	ft_align(long n, t_struct *box)
 	}
 	while (box->new_precision-- > 0)
 		ft_putchar(48, box);
-	(!n && !box->precision && box->point) ? box->retlen-- : ft_putnbr(n);
+	(ft_crutch(n, box)) ? box->retlen-- : ft_putnbr(n);
 	box->new_wight += ((box->znak) ? 1 : 0);
 	while (box->new_wight-- > 0)
 		ft_putchar(32, box);
@@ -85,7 +85,7 @@ void		display_int(t_struct *box)
 	box->new_precision = (int)(box->precision - ft_rank_count(n, 10));
 	box->new_wight = box->wight - ((box->new_precision > 0) ? \
 	box->new_precision : 0) - (int)ft_rank_count(n, 10) - ((box->znak) ? 1 : 0);
-	(!n && !box->precision && box->point) ? box->new_wight++ : 0;
+	(ft_crutch(n, box)) ? box->new_wight++ : 0;
 	if (box->align)
 		ft_align(n, box);
 	else
@@ -96,5 +96,5 @@ void		display_int(t_struct *box)
 			ft_noalign_nozero(n, box);
 	}
 	box->retlen += ft_rank_count(n, 10);
-	ft_putnull(box);
+	ft_putin(box);
 }

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_null_to_struct.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:13:44 by tsaiyan           #+#    #+#             */
-/*   Updated: 2020/12/02 13:13:49 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/12/03 19:16:43 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/12/03 19:16:45 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *format, ...)
+void	ft_putin(t_struct *box)
 {
-	t_struct *box;
-
-	box = malloc(sizeof(t_struct));
-	box->format = format;
-	box->retlen = 0;
-	box->i = 0;
-	ft_putin(box);
-	va_start(box->ap, format);
-	ft_parser(box);
-	va_end(box->ap);
-	return ((box->retlen) > 0) ? box->retlen : 0; 
+	box->wight = 0;
+	box->align = 0;
+	box->znak = 0;
+	box->zero = 0;
+	box->precision = -1;
+	box->point = 0;
+	box->ox = "0x";
 }

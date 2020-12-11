@@ -16,7 +16,7 @@
 ** special putnbr version for lower case hex
 */
 
-void		ft_putnbr_x(unsigned n, t_struct *box)
+static void	ft_putnbr_x(unsigned n, t_struct *box)
 {
 	char	*array;
 	char	result_array[ft_rank_count(n, 16) + 1];
@@ -113,5 +113,5 @@ void		display_x(t_struct *box)
 			(ft_crutch(n, box)) ? 0 : ft_putnbr_x((int)n, box);
 		}
 	}
-	ft_putnull(box);
+	ft_putin(box);
 }

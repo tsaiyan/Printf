@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 
-
 void	ft_putstr(char *s, t_struct *box)
 {
 	if (!s)
@@ -21,9 +20,10 @@ void	ft_putstr(char *s, t_struct *box)
 		ft_putchar(*s++, box);
 }
 
-int	ft_strlen(const char *str)
+int		ft_strlen(const char *str)
 {
 	int i;
+
 	if (!str)
 		return (0);
 	i = 0;
@@ -34,10 +34,9 @@ int	ft_strlen(const char *str)
 
 void	ft_putchar(char c, t_struct *box)
 {
-		if (box)
-			box->retlen++;
-		write(1, &c, 1);
-	
+	if (box)
+		box->retlen++;
+	write(1, &c, 1);
 }
 
 size_t	ft_rank_count(long n, int base)
@@ -60,19 +59,6 @@ size_t	ft_rank_count(long n, int base)
 	return (i);
 }
 
-void	ft_putnbr_u(unsigned int n)
-{
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + 48, NULL);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 void	ft_putnbr(long n)
 {
 	unsigned res;
@@ -81,10 +67,4 @@ void	ft_putnbr(long n)
 	if (res >= 10)
 		ft_putnbr(res / 10);
 	ft_putchar(res % 10 + 48, NULL);
-}
-
-
-int ft_crutch	(long n, t_struct *box)
-{
-	return ((!n && !box->precision && box->point)? 1 : 0);
 }

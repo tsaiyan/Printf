@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void		ft_putnbr_8(unsigned n, t_struct *box)
+static void	ft_putnbr_8(unsigned n, t_struct *box)
 {
 	char	*array;
 	char	result_array[ft_rank_count(n, 7) + 1];
@@ -99,5 +99,5 @@ void		display_8(t_struct *box)
 			(ft_crutch(n, box)) ? 0 : ft_putnbr_8((int)n, box);
 		}
 	}
-	ft_putnull(box);
+	ft_putin(box);
 }

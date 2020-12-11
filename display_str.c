@@ -83,5 +83,5 @@ void		display_str(t_struct *box)
 	}
 	else
 		ft_no_align(s, box);
-	ft_putnull(box);
+	ft_putin(box);
 }

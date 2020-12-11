@@ -16,7 +16,7 @@
 ** special putnbr version for upper case hex
 */
 
-void		ft_putnbr_bx(unsigned n, t_struct *box)
+static void	ft_putnbr_bx(unsigned n, t_struct *box)
 {
 	char	*array;
 	char	result_array[ft_rank_count(n, 16) + 1];
@@ -113,5 +113,5 @@ void		display_bighex(t_struct *box)
 			(ft_crutch(n, box)) ? 0 : ft_putnbr_bx((int)n, box);
 		}
 	}
-	ft_putnull(box);
+	ft_putin(box);
 }

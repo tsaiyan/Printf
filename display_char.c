@@ -62,5 +62,5 @@ void		display_char(t_struct *box)
 	}
 	else
 		ft_no_align(c, box);
-	ft_putnull(box);
+	ft_putin(box);
 }

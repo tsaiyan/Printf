@@ -16,7 +16,7 @@
 ** special putnbr version for pointers
 */
 
-void		ft_putnbr_p(unsigned long n, t_struct *box)
+static void	ft_putnbr_p(unsigned long n, t_struct *box)
 {
 	char	*array;
 	char	result_array[ft_rank_count(n, 16) + 1];
@@ -115,5 +115,5 @@ void		display_pointer(t_struct *box)
 			(ft_crutch(n, box)) ? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
 		}
 	}
-	ft_putnull(box);
+	ft_putin(box);
 }
