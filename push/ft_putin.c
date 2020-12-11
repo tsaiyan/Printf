@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_putnull(t_struct *box)
+void	ft_putin(t_struct *box)
 {
 	box->wight = 0;
 	box->align = 0;
