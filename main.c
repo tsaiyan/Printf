@@ -157,8 +157,8 @@ int	main(void)
 	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 ////	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("%08.3d\n", 8375);
-	ft_printf("%08.3d\n", 8375);
+	printf("%080x\n", 8375);
+	ft_printf("%080x\n", 8375);
 //	printf("\noriginal = %d\n", printf("%0.3d", -2, 55));
 //	printf("\nmy = %d\n", ft_printf("%0.3d", -2, 55));
 
