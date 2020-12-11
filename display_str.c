@@ -25,12 +25,13 @@ static void	ft_putstr_ds(char *s, t_struct *box)
 		while (*s)
 			ft_putchar(*s++, box);
 }
-static int	ft_strlen_ds (char *s, t_struct *box)
+
+static int	ft_strlen_ds(char *s, t_struct *box)
 {
 	int result;
 	int precision;
 	int i;
-	
+
 	i = box->precision;
 	precision = 0;
 	result = 0;
@@ -48,43 +49,41 @@ static int	ft_strlen_ds (char *s, t_struct *box)
 	return (result);
 }
 
-void	display_str(t_struct *box)
+static void	ft_no_align(char *s, t_struct *box)
+{
+	if (box->zero)
+	{
+		if (box->precision > 0)
+			while (box->new_wight-- > 0)
+				ft_putchar(32, box);
+		else
+			while (box->new_wight-- > 0)
+				ft_putchar(48, box);
+		ft_putstr_ds(s, box);
+	}
+	else
+	{
+		while (box->new_wight-- > 0)
+			ft_putchar(32, box);
+		ft_putstr_ds(s, box);
+	}
+}
+
+void		display_str(t_struct *box)
 {
 	char *s;
-	int wight;
 
 	s = va_arg(box->ap, char*);
 	if (!s)
 		s = "(null)";
-	wight = (box->wight) ? box->wight - ft_strlen_ds(s, box) : 0;
-/* если есть выравнивание */
+	box->new_wight = (box->wight) ? box->wight - ft_strlen_ds(s, box) : 0;
 	if (box->align)
 	{
 		ft_putstr_ds(s, box);
-		while (wight-- > 0)
+		while (box->new_wight-- > 0)
 			ft_putchar(32, box);
 	}
-/* если нет выравнивания */
 	else
-	{
-		/* если есть zero */
-		if (box->zero)
-		{
-			if (box->precision > 0)
-				while (wight-- > 0)
-					ft_putchar(32, box);
-			else
-				while (wight-- > 0)
-					ft_putchar(48, box);
-			ft_putstr_ds(s, box);
-		}
-		/* если нет zero */
-		else
-		{
-			while (wight-- > 0)
-				ft_putchar(32, box);
-			ft_putstr_ds(s, box);
-		}
-	}
+		ft_no_align(s, box);
 	ft_putnull(box);
 }
