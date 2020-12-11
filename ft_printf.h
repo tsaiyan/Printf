@@ -53,7 +53,6 @@ void			ft_putnull(t_struct *box);
 void			display_char(t_struct *box);
 void			display_x(t_struct *box);
 void			display_int(t_struct *box);
-void			display_hexes(char flag, t_struct *box);
 void			display_bighex(t_struct *box);
 void			display_unsigned(t_struct *box);
 void			display_pointer(t_struct *box);

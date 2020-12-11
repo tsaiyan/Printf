@@ -92,9 +92,9 @@ static void	ft_call_to_functions(t_struct *box)
 	if (box->format[box->i] == 's')
 		display_str(box);
 	if (box->format[box->i] == 'x')
-		display_hexes('x', box);
+		display_x(box);
 	if (box->format[box->i] == 'X')
-		display_hexes('X', box);
+		display_bighex(box);
 	if (box->format[box->i] == 'p')
 		display_pointer(box);
 	if (box->format[box->i] == 'u')
