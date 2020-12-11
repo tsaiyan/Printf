@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9712C8BF257E5F3A008B97C2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9712C8BE257E5F3A008B97C2 /* Makefile */; };
 		9712EFCD2579317A0026485D /* display_int.c in Sources */ = {isa = PBXBuildFile; fileRef = 9712EFCC2579317A0026485D /* display_int.c */; };
+		97209F6D2583A85D0019AB88 /* write_count.c in Sources */ = {isa = PBXBuildFile; fileRef = 97209F6C2583A85D0019AB88 /* write_count.c */; };
 		97531B0F257FA0EA00B00C40 /* display_bighex.c in Sources */ = {isa = PBXBuildFile; fileRef = 97531B0E257FA0EA00B00C40 /* display_bighex.c */; };
 		97619F73257FDD4A00336373 /* display_str.c in Sources */ = {isa = PBXBuildFile; fileRef = 97619F72257FDD4900336373 /* display_str.c */; };
 		977128D3257EA49200AE43DB /* display_char.c in Sources */ = {isa = PBXBuildFile; fileRef = 977128D2257EA49100AE43DB /* display_char.c */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		9712C8BE257E5F3A008B97C2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		9712EFCC2579317A0026485D /* display_int.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = display_int.c; sourceTree = "<group>"; };
+		97209F6C2583A85D0019AB88 /* write_count.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = write_count.c; sourceTree = "<group>"; };
 		97531B0E257FA0EA00B00C40 /* display_bighex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_bighex.c; sourceTree = "<group>"; };
 		97619F72257FDD4900336373 /* display_str.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_str.c; sourceTree = "<group>"; };
 		977128D2257EA49100AE43DB /* display_char.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display_char.c; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				97C829B72579032C002D9407 /* main.c */,
 				97E8392B257E34C300409E9A /* main_moscow.c */,
 				97F0DBDD2577B1C8004B1656 /* ft_parser.c */,
+				97209F6C2583A85D0019AB88 /* write_count.c */,
 				9712EFCC2579317A0026485D /* display_int.c */,
 				977128D2257EA49100AE43DB /* display_char.c */,
 				978DE6B325826BA4008DA1FD /* display_hex.c */,
@@ -170,6 +173,7 @@
 				9712C8BF257E5F3A008B97C2 /* Makefile in Sources */,
 				97F0DBDC2577A044004B1656 /* ft_printf.c in Sources */,
 				978CB683257FB11F00A33BFC /* display_pointer.c in Sources */,
+				97209F6D2583A85D0019AB88 /* write_count.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

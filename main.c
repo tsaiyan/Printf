@@ -157,11 +157,18 @@ int	main(void)
 	
 //	printf("\noriginal = %d\n", printf("%.09s", NULL));
 ////	printf("\nmy = %d\n", ft_printf("%.09s", NULL));
-	printf("%c\n", 'c');
-	ft_printf("%c\n", 'c');
+//	printf("%c\n", 'c');
+//	ft_printf("%c\n", 'c');
 //	printf("\noriginal = %d\n", printf("%0.3d", -2, 55));
 //	printf("\nmy = %d\n", ft_printf("%0.3d", -2, 55));
 
+	int count;
+	printf ("this%n is a test\n", &count);
+	printf ("%d\n", count);
+	
+	count = 0;
+	ft_printf ("this%n is a test\n", &count);
+	ft_printf ("%d\n", count);
 	return (0);
 }
 

@@ -101,6 +101,8 @@ static void	ft_call_to_functions(t_struct *box)
 		display_unsigned(box);
 	if (box->format[box->i] == '%')
 		display_percent(box);
+	if (box->format[box->i] == 'n')
+		write_count(box);
 	if (box->format[box->i++] == 'o')
 		display_8(box);
 }
