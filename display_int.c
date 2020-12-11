@@ -53,7 +53,7 @@ static void	ft_zero(unsigned long long n, t_struct *box)
 	}
 	while (box->new_precision-- > 0)
 		ft_putchar(48, box);
-	(!box->precision && !n) ? box->retlen-- : ft_putnbr((int)n);
+	(!box->precision && !n) ? box->retlen-- : ft_putnbr(n);
 }
 
 /*
@@ -72,16 +72,21 @@ static void	ft_noalign_nozero(unsigned long long n, t_struct *box)
 }
 
 /*
-** main function for dislay ints
+** main function for dislay all ints
 */
-
 
 void		display_int(t_struct *box)
 {
-	unsigned long long n;
-	long long m;
+	unsigned long long	n;
+	long long			m;
 
-	m = va_arg(box->ap, long long);
+	m = 0;
+	if (!box->flag_int)
+		m = va_arg(box->ap, int);
+	if (box->flag_int == 1)
+		m = va_arg(box->ap, long);
+	if (box->flag_int == 2)
+		m = va_arg(box->ap, long long);
 	n = m;
 	if (m < 0)
 	{

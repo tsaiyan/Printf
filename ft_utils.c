@@ -39,7 +39,7 @@ void	ft_putchar(char c, t_struct *box)
 	write(1, &c, 1);
 }
 
-size_t	ft_rank_count(long n, int base)
+size_t	ft_rank_count(long long n, int base)
 {
 	size_t i;
 

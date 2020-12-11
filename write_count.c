@@ -14,10 +14,10 @@
 
 void	write_count(t_struct *box)
 {
-	int *a;
-	long *aa;
-	long long *aaa;
-	
+	int			*a;
+	long		*aa;
+	long long	*aaa;
+
 	if (!box->flag_int)
 	{
 		a = va_arg(box->ap, int*);

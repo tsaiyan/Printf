@@ -45,7 +45,7 @@ static void	ft_zero(unsigned n, t_struct *box)
 	}
 	while (box->new_precision-- > 0)
 		ft_putchar(48, box);
-	(!n && box->point && !box->precision) ? box->retlen-- : ft_putnbr((int)n);
+	(!n && box->point && !box->precision) ? box->retlen-- : ft_putnbr(n);
 }
 
 void		display_unsigned(t_struct *box)

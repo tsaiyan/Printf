@@ -31,6 +31,7 @@ typedef struct	s_list
 	int			point;
 	int			retlen;
 	char		*ox;
+	int			flag_int;
 	size_t		i;
 
 	va_list		ap;
@@ -43,7 +44,7 @@ void			ft_putstr(char *s, t_struct *box);
 int				ft_strlen(const char *str);
 int				ft_printf(char *argv1, ...);
 int				ft_isdigit(int c);
-void			ft_putnbr(long n);
+void			ft_putnbr(unsigned long long n);
 size_t			ft_rank_count(long n, int base);
 void			ft_putin(t_struct *box);
 void			display_char(t_struct *box);
@@ -55,5 +56,6 @@ void			display_pointer(t_struct *box);
 void			display_percent(t_struct *box);
 void			display_8(t_struct *box);
 void			display_str(t_struct *box);
+void			write_count(t_struct *box);
 int				ft_crutch(long long n, t_struct *box);
 #endif

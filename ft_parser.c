@@ -94,8 +94,7 @@ static void	ft_write_precision(t_struct *box)
 static void	ft_call_to_functions(t_struct *box)
 {
 	if (box->format[box->i] == 'd' || box->format[box->i] == 'i' || \
-		box->format[box->i] == 'l'
-		)
+		box->format[box->i] == 'l')
 		display_int(box);
 	if (box->format[box->i] == 'c')
 		display_char(box);
