@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** write flags to the structure's variables (+-0, space)
+*/
+
 static void	ft_write_flags(t_struct *box)
 {
 	while (box->format[box->i] == 48 || box->format[box->i] == 32 || \
@@ -27,6 +31,10 @@ static void	ft_write_flags(t_struct *box)
 			box->zero = 1;
 	}
 }
+
+/*
+** write wight to the structure's variable
+*/
 
 static void	ft_write_wight(t_struct *box)
 {
@@ -44,6 +52,10 @@ static void	ft_write_wight(t_struct *box)
 		box->wight *= -1;
 	}
 }
+
+/*
+** write precision to the structure's variable (after .)
+*/
 
 static void	ft_write_precision(t_struct *box)
 {
@@ -67,6 +79,10 @@ static void	ft_write_precision(t_struct *box)
 	}
 }
 
+/*
+** calling function depending of the character after '%'
+*/
+
 static void	ft_call_to_functions(t_struct *box)
 {
 	if (box->format[box->i] == 'd' || box->format[box->i] == 'i')
@@ -76,9 +92,9 @@ static void	ft_call_to_functions(t_struct *box)
 	if (box->format[box->i] == 's')
 		display_str(box);
 	if (box->format[box->i] == 'x')
-		display_x(box);
+		display_hexes('x', box);
 	if (box->format[box->i] == 'X')
-		display_bighex(box);
+		display_hexes('X', box);
 	if (box->format[box->i] == 'p')
 		display_pointer(box);
 	if (box->format[box->i] == 'u')
@@ -88,6 +104,9 @@ static void	ft_call_to_functions(t_struct *box)
 	if (box->format[box->i++] == 'o')
 		display_8(box);
 }
+/*
+** main function for parsing
+*/
 
 void		ft_parser(t_struct *box)
 {

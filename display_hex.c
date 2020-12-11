@@ -38,6 +38,31 @@ void		ft_putnbr_x(unsigned n, t_struct *box)
 }
 
 /*
+** special putnbr version for upper case hex
+*/
+
+void	ft_putnbr_bx(unsigned n, t_struct *box)
+{
+	char *array;
+	char result_array[ft_rank_count(n, 16) + 1];
+	size_t len;
+
+	len = ft_rank_count(n, 16);
+	array = "0123456789ABCDEF";
+	result_array[len] = '\0';
+	if (n == 0)
+		result_array[--len] = 48;
+	else
+		while (n != 0)
+		{
+			result_array[--len] = array[n % 16];
+			n /= 16;
+		}
+	while (result_array[len])
+	ft_putchar(result_array[len++], box);
+}
+
+/*
 ** if format has align flag
 */
 
@@ -57,7 +82,7 @@ static void	ft_align(unsigned n, t_struct *box)
 }
 
 /*
-**if format has zero flag
+** if format has zero flag
 */
 
 static void	ft_zero(long n, t_struct *box)
@@ -86,13 +111,15 @@ static void	ft_zero(long n, t_struct *box)
 }
 
 /*
-**main function for display hex
+** 	main function for display hex
 */
 
-void		display_x(t_struct *box)
+void		display_hexes(char flag, t_struct *box)
 {
 	unsigned n;
-
+	void (*p_putnbr) (unsigned, t_struct*);
+	
+	p_putnbr = (flag == 'x') ? ft_putnbr_x : ft_putnbr_bx;
 	n = va_arg(box->ap, unsigned);
 	box->new_precision = (int)(box->precision - ft_rank_count(n, 16));
 	box->new_wight = box->wight - ((box->new_precision > 0) ?\
@@ -110,7 +137,7 @@ void		display_x(t_struct *box)
 				ft_putchar(32, box);
 			while (box->new_precision-- > 0)
 				ft_putchar(48, box);
-			(ft_crutch(n, box)) ? 0 : ft_putnbr_x((int)n, box);
+			(ft_crutch(n, box)) ? 0 : p_putnbr(n, box);
 		}
 	}
 	ft_putnull(box);

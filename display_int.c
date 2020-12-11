@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** if format has align flag
+*/
+
 static void	ft_align(long n, t_struct *box)
 {
 	if (box->znak)
@@ -26,6 +30,10 @@ static void	ft_align(long n, t_struct *box)
 	while (box->new_wight-- > 0)
 		ft_putchar(32, box);
 }
+
+/*
+** if format has zero flag
+*/
 
 static void	ft_zero(long n, t_struct *box)
 {
@@ -48,6 +56,10 @@ static void	ft_zero(long n, t_struct *box)
 	(!box->precision && !n) ? box->retlen-- : ft_putnbr((int)n);
 }
 
+/*
+** if format hasn't align and zero flags
+*/
+
 static void	ft_noalign_nozero(long n, t_struct *box)
 {
 	while (box->new_wight-- > 0)
@@ -58,6 +70,10 @@ static void	ft_noalign_nozero(long n, t_struct *box)
 		ft_putchar(48, box);
 	(!n && !box->precision && box->point) ? box->retlen-- : ft_putnbr(n);
 }
+
+/*
+** main function for dislay ints
+*/
 
 void		display_int(t_struct *box)
 {

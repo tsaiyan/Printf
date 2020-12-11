@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** special putnbr version for upper case hex
+*/
+
 void	ft_putnbr_bx(unsigned n, t_struct *box)
 {
 	char *array;

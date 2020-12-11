@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** if format hasn't align flag
+*/
+
 static void	ft_no_align(char c, t_struct *box)
 {
 	if (box->zero)
@@ -39,6 +43,10 @@ static void	ft_no_align(char c, t_struct *box)
 		ft_putchar(c, box);
 	}
 }
+
+/*
+** 	main function for display char
+*/
 
 void		display_char(t_struct *box)
 {
