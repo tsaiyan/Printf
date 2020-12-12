@@ -21,7 +21,9 @@ static void	ft_putnbr_p(unsigned long n, t_struct *box)
 	char	*array;
 	char	result_array[ft_rank_count(n, 16) + 1];
 	size_t	len;
+	unsigned long m;
 
+	m = n;
 	len = ft_rank_count(n, 16);
 	array = "0123456789abcdef";
 	result_array[len] = '\0';
@@ -35,7 +37,7 @@ static void	ft_putnbr_p(unsigned long n, t_struct *box)
 		}
 	if (!box->precision)
 		ft_putstr(box->ox, box);
-	if (ft_crutch(n, box))
+	if (ft_crutch(m, box))
 		return ;
 	while (result_array[len])
 		ft_putchar(result_array[len++], box);
@@ -112,7 +114,7 @@ void		display_pointer(t_struct *box)
 				ft_putstr(box->ox, box);
 			while (box->new_precision-- > 0)
 				ft_putchar(48, box);
-			(ft_crutch(n, box)) ? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
+			(!n && box->point && box->precision == -1) ? ft_putnbr_p(0, box) : ft_putnbr_p(n, box);
 		}
 	}
 	ft_putin(box);

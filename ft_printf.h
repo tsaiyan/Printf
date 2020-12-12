@@ -45,7 +45,7 @@ int				ft_strlen(const char *str);
 int				ft_printf(char *argv1, ...);
 int				ft_isdigit(int c);
 void			ft_putnbr(unsigned long long n);
-size_t			ft_rank_count(long long n, int base);
+size_t			ft_rank_count(unsigned long long n, int base);
 void			ft_putin(t_struct *box);
 void			display_char(t_struct *box);
 void			display_x(t_struct *box);
