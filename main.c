@@ -178,11 +178,13 @@ int	main(void)
 //	char	*u = "-0";
 //	printf("%d %n\n", 1844674, &z);
 //	printf("%lld\n",z);
-	int ncm_p;
 //	ft_printf("%d %n\n",  1844674, &z);
 //	printf("%lld\n",z);
-	printf("%.p\n", &ncm_p);
-	ft_printf("%.p\n", &ncm_p);
+	int i;
+	i = printf("%0158.87%" , NULL);
+	printf("\noriginal = %d\n", i);
+	i = ft_printf("%0158.87%" , NULL);
+	printf("\nmy printf = %d\n", i);
 	return (0);
 }
 

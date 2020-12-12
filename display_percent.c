@@ -21,12 +21,8 @@ static void	ft_no_align(char c, t_struct *box)
 	if (box->zero)
 	{
 		if (box->precision > 0)
-		{
 			while (box->wight-- > 0)
 				ft_putchar(32, box);
-			if (box->znak)
-				ft_putchar(box->znak, box);
-		}
 		else
 		{
 			if (box->znak)
